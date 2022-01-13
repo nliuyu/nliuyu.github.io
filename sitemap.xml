@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://attacktitan.gitee.io/posts/2.html</loc>
+    <loc>https://attacktitan.gitee.io/List/gallery/index.html</loc>
     
-    <lastmod>2022-01-12</lastmod>
+    <lastmod>2022-01-13</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://attacktitan.gitee.io/List/gallery/kaoyan/index.html</loc>
+    
+    <lastmod>2022-01-13</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://attacktitan.gitee.io/List/gallery/zilv/index.html</loc>
+    
+    <lastmod>2022-01-13</lastmod>
     
   </url>
   
   <url>
     <loc>https://attacktitan.gitee.io/List/movies/index.html</loc>
     
-    <lastmod>2022-01-12</lastmod>
+    <lastmod>2022-01-13</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://attacktitan.gitee.io/link/index.html</loc>
+    
+    <lastmod>2022-01-13</lastmod>
     
   </url>
   
@@ -37,13 +58,6 @@
   </url>
   
   <url>
-    <loc>https://attacktitan.gitee.io/List/gallery/index.html</loc>
-    
-    <lastmod>2022-01-12</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://attacktitan.gitee.io/List/music/index.html</loc>
     
     <lastmod>2022-01-03</lastmod>
@@ -61,13 +75,6 @@
     <loc>https://attacktitan.gitee.io/List/gallery/wallpaper/index.html</loc>
     
     <lastmod>2021-10-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://attacktitan.gitee.io/link/index.html</loc>
-    
-    <lastmod>2021-07-27</lastmod>
     
   </url>
   
@@ -102,7 +109,7 @@
 
   <url>
     <loc>https://attacktitan.gitee.io/</loc>
-    <lastmod>2022-01-12</lastmod>
+    <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -110,21 +117,14 @@
   
   <url>
     <loc>https://attacktitan.gitee.io/tags/%E7%9F%A5%E8%AF%86/</loc>
-    <lastmod>2022-01-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://attacktitan.gitee.io/tags/%E7%9B%AE%E6%A0%87/</loc>
-    <lastmod>2022-01-12</lastmod>
+    <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://attacktitan.gitee.io/tags/%E5%8A%A0%E5%AF%86/</loc>
-    <lastmod>2022-01-12</lastmod>
+    <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -133,28 +133,21 @@
   
   <url>
     <loc>https://attacktitan.gitee.io/categories/markdown/</loc>
-    <lastmod>2022-01-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://attacktitan.gitee.io/categories/prospect/</loc>
-    <lastmod>2022-01-12</lastmod>
+    <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://attacktitan.gitee.io/categories/%E7%AB%99%E7%82%B9/</loc>
-    <lastmod>2022-01-12</lastmod>
+    <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://attacktitan.gitee.io/categories/%E7%AB%99%E7%82%B9/WordPress/</loc>
-    <lastmod>2022-01-12</lastmod>
+    <lastmod>2022-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
