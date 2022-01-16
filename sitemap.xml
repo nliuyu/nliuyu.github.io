@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://attacktitan.gitee.io/link/index-1.html</loc>
+    
+    <lastmod>2022-01-16</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://attacktitan.gitee.io/about/index.html</loc>
+    
+    <lastmod>2022-01-16</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://attacktitan.gitee.io/List/movies/index.html</loc>
     
     <lastmod>2022-01-13</lastmod>
@@ -19,13 +33,6 @@
     <loc>https://attacktitan.gitee.io/link/index.html</loc>
     
     <lastmod>2022-01-13</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://attacktitan.gitee.io/about/index.html</loc>
-    
-    <lastmod>2022-01-12</lastmod>
     
   </url>
   

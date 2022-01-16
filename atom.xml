@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Eren Jaeger</title>
+  <title>刘宇的博客</title>
   
-  <subtitle>艾伦の小窝</subtitle>
+  <subtitle>刘宇的小窝</subtitle>
   <link href="https://attacktitan.gitee.io/atom.xml" rel="self"/>
   
   <link href="https://attacktitan.gitee.io/"/>
@@ -10,7 +10,7 @@
   <id>https://attacktitan.gitee.io/</id>
   
   <author>
-    <name>Eren Jaeger</name>
+    <name>liuyu刘宇</name>
     
   </author>
   
