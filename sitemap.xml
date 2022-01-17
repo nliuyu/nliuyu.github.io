@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://attacktitan.gitee.io/posts/d87f7e0c.html</loc>
+    
+    <lastmod>2022-01-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://attacktitan.gitee.io/about/index.html</loc>
     
     <lastmod>2022-01-16</lastmod>
@@ -81,7 +88,7 @@
 
   <url>
     <loc>https://attacktitan.gitee.io/</loc>
-    <lastmod>2022-01-16</lastmod>
+    <lastmod>2022-01-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
