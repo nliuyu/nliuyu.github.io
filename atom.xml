@@ -3,11 +3,11 @@
   <title>刘宇的博客</title>
   
   <subtitle>刘宇的小窝</subtitle>
-  <link href="https://attacktitan.gitee.io/atom.xml" rel="self"/>
+  <link href="https://nliuyu.github.io/atom.xml" rel="self"/>
   
-  <link href="https://attacktitan.gitee.io/"/>
+  <link href="https://nliuyu.github.io/"/>
   <updated>2022-01-17T02:54:55.949Z</updated>
-  <id>https://attacktitan.gitee.io/</id>
+  <id>https://nliuyu.github.io/</id>
   
   <author>
     <name>liuyu刘宇</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test</title>
-    <link href="https://attacktitan.gitee.io/posts/d87f7e0c.html"/>
-    <id>https://attacktitan.gitee.io/posts/d87f7e0c.html</id>
+    <link href="https://nliuyu.github.io/posts/d87f7e0c.html"/>
+    <id>https://nliuyu.github.io/posts/d87f7e0c.html</id>
     <published>2022-01-16T15:01:40.000Z</published>
     <updated>2022-01-17T02:54:55.949Z</updated>
     
@@ -31,8 +31,8 @@
   
   <entry>
     <title></title>
-    <link href="https://attacktitan.gitee.io/posts/0.html"/>
-    <id>https://attacktitan.gitee.io/posts/0.html</id>
+    <link href="https://nliuyu.github.io/posts/0.html"/>
+    <id>https://nliuyu.github.io/posts/0.html</id>
     <published>2022-01-16T08:30:57.853Z</published>
     <updated>2022-01-13T07:20:35.236Z</updated>
     
