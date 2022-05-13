@@ -6,7 +6,7 @@
   <link href="https://nliuyu.github.io/atom.xml" rel="self"/>
   
   <link href="https://nliuyu.github.io/"/>
-  <updated>2022-01-17T02:54:55.949Z</updated>
+  <updated>2022-05-13T18:55:08.706Z</updated>
   <id>https://nliuyu.github.io/</id>
   
   <author>
@@ -17,12 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>test</title>
-    <link href="https://nliuyu.github.io/posts/d87f7e0c.html"/>
-    <id>https://nliuyu.github.io/posts/d87f7e0c.html</id>
-    <published>2022-01-16T15:01:40.000Z</published>
-    <updated>2022-01-17T02:54:55.949Z</updated>
+    <title></title>
+    <link href="https://nliuyu.github.io/posts/0.html"/>
+    <id>https://nliuyu.github.io/posts/0.html</id>
+    <published>2022-05-13T18:55:23.635Z</published>
+    <updated>2022-05-13T18:55:08.706Z</updated>
     
+    <content type="html"><![CDATA[<p><strong>命令不区分大小写，不见分号不执行</strong></p><p>mysql -uroot -p</p><p>exit</p><p>show databases;</p><p>use+库名；</p><p>create database +名字 ;</p><br><p>show tables;</p><p>source +路径  导入表格(注意在这之前需要提前create和use)</p><p>seclect *from 表名;查看表中所有数据</p><p>desc +表名; 查看表的结构</p><br><p>select version(); 查看mysql版本号</p><p>select databases();</p><p>\c  终止命令</p><br><p>（varchar 是string）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;命令不区分大小写，不见分号不执行&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;mysql -uroot -p&lt;/p&gt;
+&lt;p&gt;exit&lt;/p&gt;
+&lt;p&gt;show databases;&lt;/p&gt;
+&lt;p&gt;use+库名；&lt;/p&gt;
+&lt;p&gt;create database +名字 ;&lt;/</summary>
+      
     
     
     
@@ -30,11 +42,11 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://nliuyu.github.io/posts/0.html"/>
-    <id>https://nliuyu.github.io/posts/0.html</id>
-    <published>2022-01-16T08:30:57.853Z</published>
-    <updated>2022-01-13T07:20:35.236Z</updated>
+    <title>test</title>
+    <link href="https://nliuyu.github.io/posts/d87f7e0c.html"/>
+    <id>https://nliuyu.github.io/posts/d87f7e0c.html</id>
+    <published>2022-01-16T15:01:40.000Z</published>
+    <updated>2022-01-17T02:54:55.949Z</updated>
     
     
     
