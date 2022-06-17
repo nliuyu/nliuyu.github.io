@@ -6,7 +6,7 @@
   <link href="https://nliuyu.github.io/atom.xml" rel="self"/>
   
   <link href="https://nliuyu.github.io/"/>
-  <updated>2022-06-17T14:25:01.010Z</updated>
+  <updated>2022-06-17T14:19:55.138Z</updated>
   <id>https://nliuyu.github.io/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>开启SpringBoot的入门学习</title>
-    <link href="https://nliuyu.github.io/posts/33b430d3.html"/>
-    <id>https://nliuyu.github.io/posts/33b430d3.html</id>
-    <published>2022-06-17T13:29:03.000Z</published>
-    <updated>2022-06-17T14:25:01.010Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="还在学习中，我会在期末考试完成后一直更新的。"><a href="#还在学习中，我会在期末考试完成后一直更新的。" class="headerlink" title="还在学习中，我会在期末考试完成后一直更新的。"></a>还在学习中，我会在期末考试完成后一直更新的。</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
-    
-    
-    <summary type="html">SpringBoot是基于 Spring 开发的一种轻量级的全新框架</summary>
-    
-    
-    
-    <category term="个人学习" scheme="https://nliuyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="SpringBoot" scheme="https://nliuyu.github.io/tags/SpringBoot/"/>
-    
-  </entry>
   
   <entry>
     <title>开启VUE的学习记录</title>
