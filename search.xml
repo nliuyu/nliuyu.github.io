@@ -215,6 +215,276 @@
       </categories>
   </entry>
   <entry>
+    <title>字典与集合的总结（持续更新中）</title>
+    <url>/posts/5d43f4f8.html</url>
+    <content><![CDATA[<h1 id="1-总述"><a href="#1-总述" class="headerlink" title="1. 总述"></a>1. 总述</h1><p>第五章的课程结束了，以下内容总结了课本上这一章的重点知识：</p>
+<p><img src="https://img-blog.csdnimg.cn/09c24f795ba44dfc98898e46f8c68a82.png" alt="字典与集合总结"></p>
+<h1 id="2-字典"><a href="#2-字典" class="headerlink" title="2. 字典"></a>2. 字典</h1><h2 id="2-1-创建字典"><a href="#2-1-创建字典" class="headerlink" title="2.1 创建字典"></a>2.1 创建字典</h2><h3 id="1-直接创建字典"><a href="#1-直接创建字典" class="headerlink" title="1) 直接创建字典"></a>1) 直接创建字典</h3><blockquote>
+<p>通过大括号的形式将若干“键值对”放在一起</p>
+<p><code>{键1:值1,键2:值2,……}</code></p>
+</blockquote>
+<h3 id="2-使用内置函数dict-创建字典"><a href="#2-使用内置函数dict-创建字典" class="headerlink" title="2) 使用内置函数dict()创建字典"></a>2) 使用内置函数dict()创建字典</h3><blockquote>
+<p> 例如我们可以先写出列表之后将其转化为字典，方式如下：</p>
+ <pre class="line-numbers language-python" data-language="python"><code class="language-python">items<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'俄罗斯'</span><span class="token punctuation">,</span><span class="token number">1707.5</span><span class="token punctuation">)</span><span class="token punctuation">]</span>    
+dic<span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">(</span>items<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p> 以上程序就会生成一个dic={‘俄罗斯’:1707.5}的字典</p>
+<blockquote>
+<p>注意：</p>
+<p>1.键具有唯一性，字典中<strong>不允许</strong>出现相同的键(但是不同的键可以有相同的值）</p>
+<p>2.<strong>键必须是不可变</strong>的类型，如列表就不可以作为键</p>
+</blockquote>
+</blockquote>
+<h2 id="3-先定义一个空字典，之后添加"><a href="#3-先定义一个空字典，之后添加" class="headerlink" title="3) 先定义一个空字典，之后添加"></a>3) 先定义一个空字典，之后添加</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">dict</span><span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token string">'俄罗斯'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1707.5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="2-2-访问字典"><a href="#2-2-访问字典" class="headerlink" title="2.2 访问字典"></a>2.2 访问字典</h2><blockquote>
+<p>访问字典是通过<strong>键</strong>这个索引来访问值</p>
+</blockquote>
+<blockquote>
+<p>举例如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">dic<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'俄罗斯'</span><span class="token punctuation">:</span><span class="token number">1707.5</span><span class="token punctuation">}</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dic<span class="token punctuation">[</span><span class="token string">'俄罗斯'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>最后我们可以看到会输出俄罗斯这个键在字典里所对应的值1707.5</p>
+</blockquote>
+<h2 id="2-3-更新字典"><a href="#2-3-更新字典" class="headerlink" title="2.3 更新字典"></a>2.3 更新字典</h2><blockquote>
+<p>在字典创建之后通过<code>字典名[键]=值</code>的方法进行更新，如果键在字典中不存在就会执行添加条目的操作，如果存在就会执行修改条目</p>
+</blockquote>
+<h2 id="2-4-删除字典条目"><a href="#2-4-删除字典条目" class="headerlink" title="2.4 删除字典条目"></a>2.4 删除字典条目</h2><h3 id="1-del命令"><a href="#1-del命令" class="headerlink" title="1) del命令"></a>1) del命令</h3><ul>
+<li><code>del 字典名</code> 整个字典全部删除</li>
+<li><code>del 字典名[键]</code>删掉字典中该键队对应的条目</li>
+</ul>
+<h3 id="2-pop-方法"><a href="#2-pop-方法" class="headerlink" title="2) pop()方法"></a>2) pop()方法</h3><ul>
+<li><p><code>pop(键)</code></p>
+<p>会弹出指定的键对应的值，并删掉对应的条目</p>
+</li>
+<li><p><code>pop(键,默认值(如：找不到删除的条目))</code></p>
+<blockquote>
+<p>区分于get()方法:后者并不会删掉条目</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="3-popitem-方法"><a href="#3-popitem-方法" class="headerlink" title="3) popitem()方法"></a>3) popitem()方法</h3><blockquote>
+<p>会随机删除字典中的一个条目</p>
+</blockquote>
+<p>那么问题来了如果删到字典没有条目了还会继续吗？答案是并不会，如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/fd39e35c471e4c2599926edffe20e2ac.png" alt="popitem()方法的演示"></p>
+<h3 id="4-clear-方法"><a href="#4-clear-方法" class="headerlink" title="4) clear()方法"></a>4) clear()方法</h3><p><strong>清空</strong>字典中的<strong>所有条目</strong>，但并不会删掉字典本身的结构。</p>
+<h2 id="2-5-查找字典条目"><a href="#2-5-查找字典条目" class="headerlink" title="2.5 查找字典条目"></a>2.5 查找字典条目</h2><h3 id="1-运算符in"><a href="#1-运算符in" class="headerlink" title="1) 运算符in"></a>1) 运算符in</h3><p>略</p>
+<h3 id="2-get-方法"><a href="#2-get-方法" class="headerlink" title="2) get()方法"></a>2) get()方法</h3><ul>
+<li><p><code>get(键,默认值)</code></p>
+<blockquote>
+<p>应用：利用<code>get(键,0)+1</code>可以用于统计字符出现次数，如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/15a2bdabf02d4c9b917c44d26ec2c34f.png" alt="get()方法的应用"></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2-6-遍历字典"><a href="#2-6-遍历字典" class="headerlink" title="2.6 遍历字典"></a>2.6 遍历字典</h2><h3 id="1-keys-方法"><a href="#1-keys-方法" class="headerlink" title="1) keys()方法"></a>1) <code>keys()</code>方法</h3><blockquote>
+<p>可以遍历字典中所有的键</p>
+</blockquote>
+<h3 id="2-values-方法"><a href="#2-values-方法" class="headerlink" title="2) values()方法"></a>2) <code>values()</code>方法</h3><blockquote>
+<p>可以遍历字典中所有的值</p>
+</blockquote>
+<h3 id="3-items-方法"><a href="#3-items-方法" class="headerlink" title="3) items()方法"></a>3) <code>items()方法</code></h3><blockquote>
+<p>以<code>(键,值)</code>的形式返回所有的条目</p>
+</blockquote>
+<h2 id="2-7-字典的排序"><a href="#2-7-字典的排序" class="headerlink" title="2.7 字典的排序"></a>2.7 字典的排序</h2><blockquote>
+<p>sorted()方法</p>
+<p>代码暂时略</p>
+</blockquote>
+<h2 id="2-8-合并字典"><a href="#2-8-合并字典" class="headerlink" title="2.8 合并字典"></a>2.8 合并字典</h2><h3 id="1-for循环"><a href="#1-for循环" class="headerlink" title="1) for循环"></a>1) for循环</h3><blockquote>
+<p>结合<code>items()</code>方法,利用k、v两个变量遍历被合并的字典再添加进需要合并的字典</p>
+</blockquote>
+<h3 id="2-update-方法"><a href="#2-update-方法" class="headerlink" title="2) update()方法"></a>2) update()方法</h3><blockquote>
+<p><code>需要合并的字典名.update(被合并的字典名)</code></p>
+</blockquote>
+<h3 id="3-dict-函数"><a href="#3-dict-函数" class="headerlink" title="3) dict()函数"></a>3) dict()函数</h3><ul>
+<li><p>先将其转为两个列表后合并为一，再用dict()函数转为字典</p>
+</li>
+<li><p>dic=dict(duc1,**dic2)</p>
+<blockquote>
+<p>注意：字典的键唯一，那么问题来了：两个字典具有相同的键但值不同，在合并之后会是怎样的呢？</p>
+<p>键对应的值为被合并字典的值（如下）</p>
+<p><img src="https://img-blog.csdnimg.cn/1cca491084c744c38f02c82719262045.png" alt="合并"></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="3-集合"><a href="#3-集合" class="headerlink" title="3. 集合"></a>3. 集合</h1><ul>
+<li>集合互斥且唯一，因此可以帮助我们删掉重复的元素</li>
+<li>集合的元素必须是不可变的就和字典的键一样，因此列表不可以充当元组中的元素</li>
+</ul>
+<h2 id="3-1-创建集合"><a href="#3-1-创建集合" class="headerlink" title="3.1 创建集合"></a>3.1 创建集合</h2><h3 id="1-直接创建"><a href="#1-直接创建" class="headerlink" title="1) 直接创建"></a>1) 直接创建</h3><blockquote>
+<p><code>{元素1,元素2,…}</code></p>
+</blockquote>
+<h3 id="2）-set-函数创建"><a href="#2）-set-函数创建" class="headerlink" title="2） set()函数创建"></a>2） set()函数创建</h3><ul>
+<li><p>括号内为<code>字符串</code>，会将字符串去重后让字符变成元素</p>
+</li>
+<li><p>括号内为<code>列表</code>，会将列表去重后使其元素变成集合的元素</p>
+</li>
+<li><p>括号内为空，会创建一个空集合</p>
+<blockquote>
+<p>注意：不可以用<code>{}</code>的方式创建空集合，因为这样创建后的类型为字典</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-2-集合的基本操作"><a href="#3-2-集合的基本操作" class="headerlink" title="3.2 集合的基本操作"></a>3.2 集合的基本操作</h2><h3 id="1-增"><a href="#1-增" class="headerlink" title="1) 增"></a>1) 增</h3><ul>
+<li><p><code>add()</code>方法</p>
+</li>
+<li><p><code>update()</code>方法</p>
+<blockquote>
+<p>注意：增添之后会自动去除重复的元素</p>
+</blockquote>
+<h3 id="2-删"><a href="#2-删" class="headerlink" title="2) 删"></a>2) 删</h3><ul>
+<li><p>remove()方法</p>
+<p><code>S.remove(item)</code>将指定元素item从集合S中删掉，若不存在元素item将会报错</p>
+</li>
+</ul>
+</li>
+<li><p><code>discard()</code>方法</p>
+<blockquote>
+<p><code>S.discard(item)</code>将指定元素item从集合S中删掉，若不存在元素item系统正常执行</p>
+</blockquote>
+</li>
+<li><p><code>pop()</code>方法</p>
+<blockquote>
+<p>随机删除并返回一个元素</p>
+</blockquote>
+</li>
+<li><p><code>clear()</code>方法</p>
+<blockquote>
+<p>清空集合所有元素</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="3-查"><a href="#3-查" class="headerlink" title="3) 查"></a>3) 查</h3><p>运算符<code>in</code></p>
+<h3 id="4-数学运算"><a href="#4-数学运算" class="headerlink" title="4) 数学运算"></a>4) 数学运算</h3><ul>
+<li>并集 <code>A|B</code> or <code>A.union(B)</code></li>
+<li>交集 <code>A&amp;B</code> or <code>A.intersection(B)</code></li>
+<li>差集 <code>A-B</code> or <code>A.difference(B)</code></li>
+<li>对称差集<code>A^B</code> or <code>A.symmetric_difference(B)</code></li>
+</ul>
+<h1 id="4-与C-中STL字典map-哈希表hash-map与集合set以及Java中的Map和Set使用方法的对比"><a href="#4-与C-中STL字典map-哈希表hash-map与集合set以及Java中的Map和Set使用方法的对比" class="headerlink" title="4.与C++中STL字典map/哈希表hash_map与集合set以及Java中的Map和Set使用方法的对比"></a>4.与C++中STL字典map/哈希表hash_map与集合set以及Java中的Map和Set使用方法的对比</h1><p><em>先空着，周末有空再更</em></p>
+<h1 id="5-在各种习题中的运用"><a href="#5-在各种习题中的运用" class="headerlink" title="5.在各种习题中的运用"></a>5.在各种习题中的运用</h1><p><em>先空着，周末有空再更</em></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>MyBatis框架的学习（更新中）</title>
+    <url>/posts/702709a0.html</url>
+    <content><![CDATA[<p>框架framework就是对通用代码的封装，提前写好了一些接口和类，一般以jar包的形式存在。</p>
+<p>SSM三大框架的学习顺序:MyBatis, Spring, Spring MVC</p>
+<p>数据访问层（持久层）Dao:对数据的增删改查</p>
+<p>MyBatis就是增强版的JDBC</p>
+<p>JDBC的不足：1.sql语句写死了;2.Java语句繁琐</p>
+<p>ORM:对象Object 关系Relation 映射Mapping</p>
+<p>MyBatis是一个半自动化的ORM，SQL语句需要程序员自己编写。</p>
+<p>Hibernate是一个全自动化的ORM，SQL语句可以自动生成。</p>
+<p>像User这样的类，有特殊的称呼：有人把它叫做pojo（普通java类）,有的叫做javabean（咖啡豆）,有的叫做domain（领域模型）</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>js基础语法学习</title>
+    <url>/posts/e0deaa88.html</url>
+    <content><![CDATA[<h1 id="1-1-JS的调用方式与执行顺序"><a href="#1-1-JS的调用方式与执行顺序" class="headerlink" title="1.1 JS的调用方式与执行顺序"></a>1.1 JS的调用方式与执行顺序</h1><h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>HTML页面中的任意位置加上<script type="module"></script>即可。</p>
+<p>常见的使用方式有以下几种“</p>
+<ul>
+<li><p>直接在<script type="module"></script>标签内写JS代码。</p>
+</li>
+<li><p>直接引入文件：</p>
+<p><code>&lt;script type="module" src="/static/js/index.js"&gt;&lt;/scipt&gt;</code>。</p>
+</li>
+<li><p>将所需的代码通过<code>import</code>关键字引入到当前作用域。</p>
+</li>
+</ul>
+<p>例如：</p>
+<p><code>/static/js/index.js</code>文件中的内容为：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> name<span class="token operator">=</span><span class="token string">"cxk"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span><span class="token punctuation">{</span>
+	name<span class="token punctuation">,</span>
+	print
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>&lt;script type="module"&gt;&lt;/script&gt;</code>中的内容为：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"module"</span><span class="token operator">&gt;</span>
+	<span class="token keyword">import</span> <span class="token punctuation">{</span>name<span class="token punctuation">,</span> print <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"/static/js/injdex.js"</span><span class="token punctuation">;</span>
+	
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h2><ol>
+<li>类似于HTML与CSS按从上到下的顺序执行；</li>
+<li>事件驱动执行；</li>
+</ol>
+<h2 id="HTML，CSS，JavaScript三者之间的关系"><a href="#HTML，CSS，JavaScript三者之间的关系" class="headerlink" title="HTML，CSS，JavaScript三者之间的关系"></a>HTML，CSS，JavaScript三者之间的关系</h2><ol>
+<li>CSS控制HTML</li>
+<li>Javascript控制CSS与HTML</li>
+<li>为了方便开发与维护，尽量按照上述顺序写代码。例如：不要在HTML中调用JavaScript的函数。</li>
+</ol>
+<h1 id="变量与运算符"><a href="#变量与运算符" class="headerlink" title="变量与运算符"></a>变量与运算符</h1><h2 id="let与const"><a href="#let与const" class="headerlink" title="let与const"></a><code>let</code>与<code>const</code></h2><p>用来声明变量，作用范围为当前作用域。</p>
+<ul>
+<li><code>let</code>用来定义变量；</li>
+<li><code>const</code>用来定义常量；</li>
+</ul>
+<p>例如：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> s <span class="token operator">=</span> <span class="token string">"cxk"</span><span class="token punctuation">,</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> d <span class="token operator">=</span> n<span class="token punctuation">{</span>
+	name<span class="token operator">:</span> <span class="token string">"xiuaoheizi"</span><span class="token punctuation">,</span>
+	age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> n <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><ul>
+<li><code>number</code>：数值变量，例如<code>1</code>,<code>2.5</code></li>
+<li><code>string</code>：字符串，例如<code>cxk</code>，<code>xiaoheizi</code>，单引号与双引号均可。字符串中的每个字符为只读类型。</li>
+<li><code>boolean</code>：布尔值，例如<code>true</code>,<code>false</code></li>
+<li><code>object</code>：对象，类似于<code>C++</code>中的指针，例如<code>[1,2,3]</code>，<code>{name:"cxk",age:18}</code>，<code>null</code></li>
+<li><code>undefined</code>：未定义的变量</li>
+</ul>
+<p>类似于Python，JavaScript中的变量类型可以动态变化。</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>与<code>C++</code>、``Python`类似，不同点：</p>
+<ul>
+<li><code>**</code>表示乘方</li>
+<li>等于与不等于用<code>===</code>和<code>!==</code></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>数学建模比赛的学习记录</title>
+    <url>/posts/a87c26aa.html</url>
+    <content><![CDATA[<h1 id="写这篇笔记的原因"><a href="#写这篇笔记的原因" class="headerlink" title="写这篇笔记的原因"></a>写这篇笔记的原因</h1><p>一个暑假被我摸鱼混过去了，今天上午老师要求阅读论文，作为leader的我却又摸鱼了一天，最后把讲解题目的任务都给了队友，这让我在看到其他队伍的leader都挑起了重担而我却在苟活，良心受到了巨大的谴责。</p>
+<p>一开始我并不认为我需要学习数学建模，这个比赛混一混就够了，毕竟我还要学习很多专业课。但是我发现，我并没有拿出这个时间去好好学习任何东西，而是放在聊天、游戏以及刷视频上。</p>
+<p>有些时候，给自己太多期望和安排，反而到了最后因为认为每一个都很重要都应该去做，反而最后就拖拖拉拉，以至于一个都没有完成。</p>
+<p>因此不如给自己一个目标，也就是在数学建模比赛前期我至少要看完相关网课。</p>
+<p><strong>有些时候就是因为自认为自己坚持不下来，即使自己坚持下来了也不一定有用。那么我这次要认为自己一定能坚持学习得完，并且学习完了就一定能让我获奖!我一定要去做！</strong></p>
+<p>人生就是要尝试挑战自己，让自己变得不一样。</p>
+<h1 id="一、如何查找"><a href="#一、如何查找" class="headerlink" title="一、如何查找"></a>一、如何查找</h1><blockquote>
+<p>Just do what you gotta do！</p>
+</blockquote>
+<p><code>现在是16：49，我正在看如何准备数学建模。刚刚摸鱼了一分钟。不能再摸鱼啦！</code></p>
+<p><img src="https://img-blog.csdnimg.cn/1ecafb5527e040ffbbb2ff9fc81633e1.png" alt="在这里插入图片描述"></p>
+<h2 id="可以安装的几款软件"><a href="#可以安装的几款软件" class="headerlink" title="可以安装的几款软件"></a>可以安装的几款软件</h2><p>1.Matlab</p>
+<p>2.Mathpix：截图即可公式编辑</p>
+<p>3.AxGlyph：学术绘图</p>
+<p><img src="https://img-blog.csdnimg.cn/b205ea1d51b24307a063d0d46b5b1f2d.png" alt="ABC赛题特点"></p>
+<blockquote>
+<p>不要学了几分钟，就认为自己学了好多，然后就放心大胆去玩几小时！！</p>
+</blockquote>
+<h2 id="如何使用搜索引擎"><a href="#如何使用搜索引擎" class="headerlink" title="如何使用搜索引擎"></a>如何使用搜索引擎</h2><p><img src="https://img-blog.csdnimg.cn/ff7fa16e20bb4996a5ad5d634838a99d.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/a0b504f0820c4d528cab960a304191c6.png" alt="在这里插入图片描述"></p>
+<p>通过高级检索搜索，关键词一般设置为模糊，例如搜索“神经网络”，模糊搜索出的结果就会包含“神经”或者“网络”。以便达达到搜索到的更多</p>
+<p><img src="https://img-blog.csdnimg.cn/4221afc9630c4d5f8403b3adb65a1272.png" alt="其它网站"></p>
+<p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20220907173352474.png" alt="image-20220907173352474"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>开启Djiago课程的学习</title>
     <url>/posts/359fc57.html</url>
     <content><![CDATA[<h1 id="一、Python3语法的学习"><a href="#一、Python3语法的学习" class="headerlink" title="一、Python3语法的学习"></a><font color="orange">一、Python3语法的学习</font></h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a><font color="orange">1.准备工作</font></h2><p><img src="https://img-blog.csdnimg.cn/1ec18455aa704fec8980828a280e1f3f.png" alt="准备"><br>我们先打开python3，之后创建一个名为python_lesson的文件夹；<br><img src="https://img-blog.csdnimg.cn/81289423ef36403fbe093e6adfd034d0.png" alt="创建main.py"><br>之后创建一个python文件。<br><img src="https://img-blog.csdnimg.cn/c580eaa503774366963a4fccb02d6c94.png" alt="格式"><br>在python的第一行写上#!/usr/bin/env python3，第二行写上编码<br>之后写上print(“Hello World”)<br><img src="https://img-blog.csdnimg.cn/4b67c85633134b51b498c5f19d9ecd48.png" alt="运行"><br>于是在运行时就出现了。<br><img src="https://img-blog.csdnimg.cn/7932861c1a9d4e668ed07aba3a13f29d.png" alt="其他两种运行形式"><br>以上是其他的两种运行形式。</p>

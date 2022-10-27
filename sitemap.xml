@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://nliuyu.github.io/posts/a87c26aa.html</loc>
+    
+    <lastmod>2022-10-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nliuyu.github.io/posts/5d43f4f8.html</loc>
+    
+    <lastmod>2022-10-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nliuyu.github.io/posts/e0deaa88.html</loc>
+    
+    <lastmod>2022-10-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nliuyu.github.io/posts/702709a0.html</loc>
+    
+    <lastmod>2022-10-27</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://nliuyu.github.io/posts/359fc57.html</loc>
     
     <lastmod>2022-08-08</lastmod>
@@ -165,14 +193,14 @@
 
   
   <url>
-    <loc>https://nliuyu.github.io/tags/SpringBoot/</loc>
+    <loc>https://nliuyu.github.io/tags/VUE/</loc>
     <lastmod>2022-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://nliuyu.github.io/tags/VUE/</loc>
+    <loc>https://nliuyu.github.io/tags/SpringBoot/</loc>
     <lastmod>2022-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
