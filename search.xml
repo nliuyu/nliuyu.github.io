@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>针对JAVA期末课设的学习记录</title>
+    <url>/posts/a425977c.html</url>
+    <content><![CDATA[<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><ul>
+<li><h4 id="Vue2"><a href="#Vue2" class="headerlink" title="Vue2"></a>Vue2</h4><p>[vue的学习记录(更新中)](<a href="https://www.liuyu.biz/posts/708b490e.html">开启VUE的学习记录 | 刘宇的个人博客</a>)</p>
+</li>
+<li><h3 id="element-ui"><a href="#element-ui" class="headerlink" title="element-ui"></a>element-ui</h3></li>
+<li><h3 id="bootstrap5"><a href="#bootstrap5" class="headerlink" title="bootstrap5"></a>bootstrap5</h3></li>
+<li><h3 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h3></li>
+</ul>
+<h2 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h2><ul>
+<li><h3 id="springboot2"><a href="#springboot2" class="headerlink" title="springboot2"></a>springboot2</h3><p><a href="">SpringBoot的学习记录</a></p>
+</li>
+<li><h3 id="mybatis-plus"><a href="#mybatis-plus" class="headerlink" title="mybatis-plus"></a>mybatis-plus</h3></li>
+<li><h3 id="Gson"><a href="#Gson" class="headerlink" title="Gson"></a>Gson</h3></li>
+</ul>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><ul>
+<li><h3 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h3></li>
+</ul>
+<h2 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h2><ul>
+<li><h3 id="社区版idea"><a href="#社区版idea" class="headerlink" title="社区版idea"></a>社区版idea</h3></li>
+<li><h3 id="vs-code"><a href="#vs-code" class="headerlink" title="vs code"></a>vs code</h3></li>
+</ul>
+<h2 id="实现后端增删改查"><a href="#实现后端增删改查" class="headerlink" title="实现后端增删改查"></a>实现后端增删改查</h2><p>   首先我们新建一个文件夹，通过cmd输入命令<code> vue create front</code>(为前端项目命名为”front”)，选择vue2。在创建vue的同时，我们可以在这段时间创建数据库，登陆msql之后，source + 数据库的路径可以将之前设计好的数据库拖过来。</p>
+<p>  之后我们打开Idea,选择new project - &gt; 点击next- &gt; 选择Maven - &gt;  选择新建的文件夹路径\back(为前端项目命名为”back”)</p>
+<p>  在maven的pom.xml文件中引入依赖后刷新maven</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
+         <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+         <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modelVersion</span><span class="token punctuation">&gt;</span></span>4.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modelVersion</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.example<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>mybatis_plus01<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>1.0-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maven.compiler.source</span><span class="token punctuation">&gt;</span></span>8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maven.compiler.source</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maven.compiler.target</span><span class="token punctuation">&gt;</span></span>8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maven.compiler.target</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-parent<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.6.7<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>relativePath</span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">&gt;</span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>mybatis-plus-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>3.5.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.projectlombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>lombok<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>optional</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>optional</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">&gt;</span></span>runtime<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.google.code.gson<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>gson<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.8.5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  在source下创建一个文件（file）,重命名为”application.yaml”</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token string">'123456'</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span>3306/demo3<span class="token punctuation">?</span>characterEncoding=UTF<span class="token punctuation">-</span>8<span class="token important">&amp;serverTimezone=UTC</span>
+    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  写法很固定，username和password分别是用户名和密码（注意打上单引号），url中加上数据库。</p>
+<p>  接下来在java下新建一个包”org.example.Application”，最后就会创建出一个Application类作为启动类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>example</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>mybatis<span class="token punctuation">.</span>spring<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">MapperScan</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span></span><span class="token class-name">SpringApplication</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span></span><span class="token class-name">SpringBootApplication</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@MapperScan</span><span class="token punctuation">(</span><span class="token string">"org.example.mapper"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Application</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">Application</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  新建一个Student类，通过Navicat的设计表查看（也可以在cmd中输入命令”desc+表名”查看）有哪些属性，类型需要一一匹配。通过lombok可以帮助我们快速生成构造方法、toString方法等等。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>pojo</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Data</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Data</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Student</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">Long</span> id<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> date<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> content<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> num1<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> num2<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> num3<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> num4<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  在mapper包下创建一个StudentMapper接口</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>mapper</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>baomidou<span class="token punctuation">.</span>mybatisplus<span class="token punctuation">.</span>core<span class="token punctuation">.</span>mapper<span class="token punctuation">.</span></span><span class="token class-name">BaseMapper</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">Student</span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">StudentMapper</span> <span class="token keyword">extends</span> <span class="token class-name">BaseMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Student</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>  创建Controller类配置路由规则，Gson可以将查出来的数据转成字符串，这个时候会有警告，在上方加上@SuppressWarnings(“all”)</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">org<span class="token punctuation">.</span>example</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">com<span class="token punctuation">.</span>google<span class="token punctuation">.</span>gson<span class="token punctuation">.</span></span><span class="token class-name">Gson</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>mapper<span class="token punctuation">.</span></span><span class="token class-name">StudentMapper</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>example<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">Student</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Autowired</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token operator">*</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@RestController</span>
+<span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span><span class="token string">"all"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@CrossOrigin</span><span class="token punctuation">(</span>origins <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"*"</span><span class="token punctuation">,</span> <span class="token string">"null"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Controller</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">StudentMapper</span> studentMapper<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Gson</span> gson<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Gson</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/students"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">getStudents</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Student</span><span class="token punctuation">&gt;</span></span> students <span class="token operator">=</span> studentMapper<span class="token punctuation">.</span><span class="token function">selectList</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> gson<span class="token punctuation">.</span><span class="token function">toJson</span><span class="token punctuation">(</span>students<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"/add"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span>  <span class="token keyword">void</span> <span class="token function">addStudent</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">Student</span> student<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        studentMapper<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>student<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"delete"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">removeStudent</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">Student</span> student<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        studentMapper<span class="token punctuation">.</span><span class="token function">deleteById</span><span class="token punctuation">(</span>student<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"update"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">updateStudent</span><span class="token punctuation">(</span><span class="token annotation punctuation">@RequestBody</span> <span class="token class-name">Student</span> student<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        studentMapper<span class="token punctuation">.</span><span class="token function">updateById</span><span class="token punctuation">(</span>student<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="以下都是零碎的知识点记录，我会在考完后的6月25日晚整理好后更新的，图片未上传图床所以没有加载出来，"><a href="#以下都是零碎的知识点记录，我会在考完后的6月25日晚整理好后更新的，图片未上传图床所以没有加载出来，" class="headerlink" title="(以下都是零碎的知识点记录，我会在考完后的6月25日晚整理好后更新的，图片未上传图床所以没有加载出来，)"></a>(以下都是零碎的知识点记录，我会在考完后的6月25日晚整理好后更新的，图片未上传图床所以没有加载出来，)</h1><p>输入命令cd . 用vscode打开</p>
+<p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20220613121730446.png" alt="image-20220613121730446"></p>
+<p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20220613130335196.png" alt="image-20220613130335196"></p>
+<p>会报错，需要在项目中打开</p>
+<p>npm run serve</p>
+<p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20220613120931100.png" alt="image-20220613120931100"></p>
+<p>在浏览器中输入 localhost:8080 </p>
+<p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20220613122359809.png" alt="image-20220613122359809"></p>
+<p>自带的组建中，我们进行一下修改</p>
+<p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20220613123926052.png" alt="image-20220613123926052"></p>
+<p>将它自带的都删掉，</p>
+<p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20220613155809059.png" alt="image-20220613155809059"></p>
+<h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h2><h3 id="1-在A组建中使用B组建"><a href="#1-在A组建中使用B组建" class="headerlink" title="1. 在A组建中使用B组建"></a>1. 在A组建中使用B组建</h3><pre class="line-numbers language-none"><code class="language-none">import B from "./B.vue"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="2-可以用-lt-gt-代替成对标签"><a href="#2-可以用-lt-gt-代替成对标签" class="headerlink" title="2.可以用<  />代替成对标签"></a>2.可以用&lt;  /&gt;代替成对标签</h3><h3 id="3-通过data-return-的方式传输数据"><a href="#3-通过data-return-的方式传输数据" class="headerlink" title="3. 通过data(){return }的方式传输数据"></a>3. 通过data(){return }的方式传输数据</h3><h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>vue create + 名称 </p>
+<p>npm i hexo-cli -g</p>
+<h3 id="一些代码"><a href="#一些代码" class="headerlink" title="一些代码"></a>一些代码</h3><p>v-for</p>
+<p>v-show</p>
+<h2 id="需要注意的几点"><a href="#需要注意的几点" class="headerlink" title="需要注意的几点"></a>需要注意的几点</h2><p>需要多单词驼峰命名</p>
+<p>@click需要加@</p>
+<p>methods不要忘记加s</p>
+<p>return中的用逗号隔开</p>
+<p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20220613202245273.png" alt="image-20220613202245273"></p>
+<p>冒号前需要有空格</p>
+<h2 id="一些小插曲"><a href="#一些小插曲" class="headerlink" title="一些小插曲"></a>一些小插曲</h2><p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20220613193958586.png" alt="image-20220613193958586"></p>
+<p>npm i hexo-cli -g</p>
+<p>由npm安装</p>
+<p>箭头函数  如果使用了this，不会指向当前对象本身，而是指向外面的</p>
+<p>axios本身就是函数</p>
+<p>alert() 警告消息框  该消息框提供了一个“确定”按钮让用户关闭该消息框</p>
+<p>confirm() 确认消息框 使用确认消息框可向用户问一个“是-或-否”问题，并且用户可以选择单击“确定”按钮或者单击“取消”按钮</p>
+<p>prompt() 提示消息框 提示消息框提供了一个文本字段，用户可以在此字段输入一个答案来响应您的提示</p>
+<p>通过lombok生成方法，tostring等等</p>
+<p>add是大括号{}</p>
+<p>npm i axios</p>
+<p>npm i <a href="mailto:bootstrap@5.2.0-beta1">bootstrap@5.2.0-beta1</a></p>
+<p><a href="https://getbootstrap.com/docs/5.2/content/tables/">https://getbootstrap.com/docs/5.2/content/tables/</a></p>
+<p>npm i element-ui</p>
+]]></content>
+      <categories>
+        <category>期末作业</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>开启Djiago课程的学习</title>
+    <url>/posts/359fc57.html</url>
+    <content><![CDATA[<h1 id="一、Python3语法的学习"><a href="#一、Python3语法的学习" class="headerlink" title="一、Python3语法的学习"></a><font color="orange">一、Python3语法的学习</font></h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a><font color="orange">1.准备工作</font></h2><p><img src="https://img-blog.csdnimg.cn/1ec18455aa704fec8980828a280e1f3f.png" alt="准备"><br>我们先打开python3，之后创建一个名为python_lesson的文件夹；<br><img src="https://img-blog.csdnimg.cn/81289423ef36403fbe093e6adfd034d0.png" alt="创建main.py"><br>之后创建一个python文件。<br><img src="https://img-blog.csdnimg.cn/c580eaa503774366963a4fccb02d6c94.png" alt="格式"><br>在python的第一行写上#!/usr/bin/env python3，第二行写上编码<br>之后写上print(“Hello World”)<br><img src="https://img-blog.csdnimg.cn/4b67c85633134b51b498c5f19d9ecd48.png" alt="运行"><br>于是在运行时就出现了。<br><img src="https://img-blog.csdnimg.cn/7932861c1a9d4e668ed07aba3a13f29d.png" alt="其他两种运行形式"><br>以上是其他的两种运行形式。</p>
+<h2 id="2-语法"><a href="#2-语法" class="headerlink" title="2.语法"></a><font color="orange">2.语法</font></h2><p>#： 注释（建议养成好习惯，空两格后加注释）<br><img src="https://img-blog.csdnimg.cn/ab9f37f75dcb49efabeb8e7441bb08ac.png" alt="计算器"><br>作为计算器，在输入需要计算的内容后，会自动输出。（ipython3会高亮以及补全的信息会更多。）<br><img src="https://img-blog.csdnimg.cn/3b1d25d1f90e42d2a72e1706ff9d34e8.png" alt="除号"><br>python中的除号默认是浮点数运算。<br><img src="https://img-blog.csdnimg.cn/b07273548475441981a7ef6ba0ae2900.png" alt="举例"><br>两个除号是整除，两个乘号是乘方。<br><img src="https://img-blog.csdnimg.cn/59ee257e6c044abcad91bce510fa272f.png" alt="整除的性质"><br>Python的整除是向下取整，而C++是向0取整。<br><img src="https://img-blog.csdnimg.cn/b710a67cac4349aa874e149566f97f0c.png" alt="定义变量"><br>python中可以直接定义变量。<br><img src="https://img-blog.csdnimg.cn/5dcee09e36324e25bbd28c476667a812.png" alt="下划线"><br>下划线_:取上一个的值。<br><img src="https://img-blog.csdnimg.cn/06ba66e8a1c84559aa23af18a5c8c2ec.png" alt="保留小数"><br>round可以用于保留小数。<br><img src="https://img-blog.csdnimg.cn/c1d105a0aef54ed78e00681cae67c734.png" alt="字符串"><br>单引号与双引号都可以表示字符串，\用于转义，如果不希望转义可以在前面补上r。<br><img src="https://img-blog.csdnimg.cn/1ff5a3d736f44fcab9a831c98bef9385.png" alt="双引号"><br>三个双引号。<br><img src="https://img-blog.csdnimg.cn/1b6e8cb2b99242639130f9f8b91a4837.png" alt="输出多个字符"><br><img src="https://img-blog.csdnimg.cn/ae6d338918994d71a3939ca14059a091.png" alt="拼接"><br>自动拼接字符串。<br><img src="https://img-blog.csdnimg.cn/a089043baa724bbd8a8e5dccf0832ff0.png" alt="+拼接"><img src="https://img-blog.csdnimg.cn/11a6935028314b05b5b45cb0f35a97ea.png" alt="访问字符串"><br><img src="https://img-blog.csdnimg.cn/eca730360a6b427abd93287ea6063df4.png" alt="字符串的下标"><br>python的下标可以从左往右，也可以从右往左访问。<br><img src="https://img-blog.csdnimg.cn/c4a90f83529f49739c2b9275b3213258.png" alt="切片"><br>切片，可以访问某个区间内的。如a[0:2]，就是从0-1。<br><img src="https://img-blog.csdnimg.cn/05e38be54b614372b478e110c47d1cc3.png" alt="官方文档的解释"><br>切片省略前后的输出。<br><img src="https://img-blog.csdnimg.cn/2a56ccfc0d5c458283b05fd2bb17ee95.png" alt="举例"><br><img src="https://img-blog.csdnimg.cn/036ce75aae06470a86b49359c1e4621d.png" alt="空串"><br><img src="https://img-blog.csdnimg.cn/b555dc5e844642c6b5c23f328798d3cd.png" alt="越界"><br>注意下标不能越界，但是切片可以，因为它会自动截断。<br><img src="https://img-blog.csdnimg.cn/b04a5b637ac84f18b25a26489ed1dd80.png" alt="修改"><br>与C++ 不同的是，python中的字符串不能修改，但是却可以增加。<br>len函数：求python所有长度。（数据结构：list数组，set，dict字典类似map）<br><img src="https://img-blog.csdnimg.cn/e3f75afc00e84d47a179e011a52a117c.png" alt="数组"><br>数组是用中括号定义。<br><img src="https://img-blog.csdnimg.cn/9d3f8d2367584d82b5c8f4e993920be3.png" alt="举例"><br>并且数组十分灵活。<br>和字符串一样，访问和切片完全相同，因此省略。<br><img src="https://img-blog.csdnimg.cn/628a4f4cc8b741559cceb92de14f5610.png" alt="指针"><br>如同指针，将a赋值给b后，修改a，b的值也会跟着修改。<br><img src="https://img-blog.csdnimg.cn/642821ba04bf4c9681116709984f4908.png" alt="复制"><br>浅拷贝。<br><img src="https://img-blog.csdnimg.cn/986ef1eff3464be9bea069e7bb6e587d.png" alt="深拷贝"><img src="https://img-blog.csdnimg.cn/4c55ad7d4a1d481abf149e098be0e5b7.png" alt="拷贝"></p>
+<p>深拷贝，改a不改变b。<br><img src="https://img-blog.csdnimg.cn/f6fc98d192b847708cff653c02a7a247.png" alt="插入"><br><img src="https://img-blog.csdnimg.cn/a84292aa56bf4529b4c64d29b061e3c7.png" alt="增加"><br>增加元素。<br><img src="https://img-blog.csdnimg.cn/20dff89d1038450caba863ecac2f58f9.png" alt="2"></p>
+<p><img src="https://img-blog.csdnimg.cn/018e7841fad742b79d7952d1a6fd44d7.png" alt="切片也可以改变"><br><img src="https://img-blog.csdnimg.cn/7546eb165ad14a89b0cf41c8165da1bd.png" alt="2"><br>切片也可以进行改变。<br><img src="https://img-blog.csdnimg.cn/850654e6662f4ee284d75e066780ab2d.png" alt="3"><br>通过改变切片的方法，我们可以将整个变成空串，从而清空数组。<br><img src="https://img-blog.csdnimg.cn/eaeca65a0a3d451392ad72f0d1ee5188.png" alt="1"><br>复合赋值。<br><img src="https://img-blog.csdnimg.cn/96326447c23a46a3ac46a4e2d580adcb.png" alt="1"><br>交换两个变量。<br><img src="https://img-blog.csdnimg.cn/4a6501d7e8844c0cbd61771703dc7d77.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/d3469f1c166447c080f631773ddf9b08.png" alt="1"></p>
+<p>python所有循环后面需要加上冒号。python不需要大括号，它是通过缩进判断是否在循环体内。<br><img src="https://img-blog.csdnimg.cn/7883c330ea214501bd09e06bfc9e3a6a.png" alt="1"><br><img src="https://img-blog.csdnimg.cn/4a087901b4ce470d8025d12ed73a5dfa.png" alt="1"><br>通过print的end修改可以将最后输出都为回车改为“，”。</p>
+<h1 id="二、Djiango的框架"><a href="#二、Djiango的框架" class="headerlink" title="二、Djiango的框架"></a><font color="blue">二、Djiango的框架</font></h1><p><img src="https://img-blog.csdnimg.cn/d5a41296ff304266ac58d57103156fc3.png" alt="框架"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>提升打字速度小技巧</title>
+    <url>/posts/f8192249.html</url>
+    <content><![CDATA[<h1 id="一、英文"><a href="#一、英文" class="headerlink" title="一、英文"></a>一、英文</h1><h2 id="1-删除一整个单词"><a href="#1-删除一整个单词" class="headerlink" title="1. 删除一整个单词"></a>1. 删除一整个单词</h2><p>通过Ctrl+Backspace可以实现；</p>
+<p>与此同时，对于中文，我们也可以通过这种操作删除一个词。</p>
+<h2 id="2-删除一整行单词"><a href="#2-删除一整行单词" class="headerlink" title="2. 删除一整行单词"></a>2. 删除一整行单词</h2><p>Shift+Home可以选中一整行，因此我们可以通过Shift+Home+Backspace完成删除一整行的操作。</p>
+<h2 id="3-训练"><a href="#3-训练" class="headerlink" title="3. 训练"></a>3. 训练</h2><h3 id="（1）训练常用词"><a href="#（1）训练常用词" class="headerlink" title="（1）训练常用词"></a>（1）训练常用词</h3><p>10fastfigers.com</p>
+<h3 id="（2）训练薄弱字母"><a href="#（2）训练薄弱字母" class="headerlink" title="（2）训练薄弱字母"></a>（2）训练薄弱字母</h3><p>keybr.com</p>
+<h1 id="二、中文"><a href="#二、中文" class="headerlink" title="二、中文"></a>二、中文</h1><h2 id="1-偏盘部首辅助找字"><a href="#1-偏盘部首辅助找字" class="headerlink" title="1. 偏盘部首辅助找字"></a>1. 偏盘部首辅助找字</h2><p>可以在输入拼音后加上Tab键输入偏旁部首。</p>
+<h2 id="2-Ctrl-首字母可以快速定位到该字母前方"><a href="#2-Ctrl-首字母可以快速定位到该字母前方" class="headerlink" title="2. Ctrl+首字母可以快速定位到该字母前方"></a>2. Ctrl+首字母可以快速定位到该字母前方</h2><h2 id="3-启用u模式，通过偏旁部首组成生僻字"><a href="#3-启用u模式，通过偏旁部首组成生僻字" class="headerlink" title="3. 启用u模式，通过偏旁部首组成生僻字"></a>3. 启用u模式，通过偏旁部首组成生僻字</h2><h2 id="4-启用v模式，可以方便数字的使用和计算"><a href="#4-启用v模式，可以方便数字的使用和计算" class="headerlink" title="4. 启用v模式，可以方便数字的使用和计算"></a>4. 启用v模式，可以方便数字的使用和计算</h2><p>如v123可以快速输入繁体</p>
+<h2 id="5-简拼"><a href="#5-简拼" class="headerlink" title="5. 简拼"></a>5. 简拼</h2><p>rq 输入今天的日期</p>
+<p>sq 输入现在星期几</p>
+<p>sj 输入现在时间点</p>
+<h2 id="6-固定首位"><a href="#6-固定首位" class="headerlink" title="6. 固定首位"></a>6. 固定首位</h2><h2 id="7-自定义快捷短语"><a href="#7-自定义快捷短语" class="headerlink" title="7. 自定义快捷短语"></a>7. 自定义快捷短语</h2><p>比如可以让字母输出标点符号</p>
+<h2 id="8-美化输入法皮肤，提升效率"><a href="#8-美化输入法皮肤，提升效率" class="headerlink" title="8. 美化输入法皮肤，提升效率"></a>8. 美化输入法皮肤，提升效率</h2>]]></content>
+  </entry>
+  <entry>
+    <title>配置Mysql与注册登录模块</title>
+    <url>/posts/94f24848.html</url>
+    <content><![CDATA[<h1 id="整个框架的模型"><a href="#整个框架的模型" class="headerlink" title="整个框架的模型"></a>整个框架的模型</h1><p><img src="https://img-blog.csdnimg.cn/6a56f158dee94d3d90ac4970cec26768.png" alt="整个框架的模型"><br>工程就是对字符串的处理。</p>
+<h1 id="MySQL的安装与使用"><a href="#MySQL的安装与使用" class="headerlink" title="MySQL的安装与使用"></a>MySQL的安装与使用</h1><p>软件默认储存在了C盘的Program Files，数据储存在了Program Data。<br> cd “C:\Program Files\MySQL\MySQL Server 8.0\bin”  进入之后运行Mysql的命令mysql –version。<br> 配置Path环境变量：我的电脑-属性-高级-环境变量-Path（上面的是当前用户，下面的是所有用户都能访问）-新建-将bin放进去-之后就可以在各个情况下使用mysql 。<br> 注意：如果电脑上有多个mysql的版本需要在配置环境变量时将需要显示的那个的bin目录上移。<br> 用管理员权限运行powershell后输入net stop mysql80就可以停止，输入net start mysql80启动服务。</p>
+<h2 id="登录自己的mysql"><a href="#登录自己的mysql" class="headerlink" title="登录自己的mysql"></a>登录自己的mysql</h2><p>mysql -uroot -P端口号 -p密码 </p>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><p> show databases;<br>create databases 名称;<br>use 名称; 使用数据库<br>drop 名称; 删除数据库</p>
+<p>show tables; 显示表<br>create table 名称（属性1 类型1,）； –常见的属性有id，用户名，密码；varchar需要在括号中加上长度<br>drop table 名称; 删除表</p>
+<p>insert into 名称 values(，‘’,‘’); –在想插入的表中插入数据<br>select * from 名称; 查询数据<br>select * from 名称 where 条件； 查询单个<br>delete from 名称 where 条件; 删除</p>
+<p>键盘上的上下方向键可以试试</p>
+<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><p>打开Idea，选择连接数据库，点击移出可以删除已有数据库，其中数据库填自己创建的，组建选择默认组建。<br>测试连接成功后就可以在Idea中修改数据，其中点击+可以增加表中的数据，点击向上的箭头可以上传数据，点击刷新可以更新数据。<br>点击新建列可以增加一列。</p>
+<h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><p>在<a href="https://mvnrepository.com/%EF%BC%88maven%E4%BB%93%E5%BA%93%EF%BC%89%E4%B8%AD%E6%90%9C%E7%B4%A2%E6%89%80%E9%9C%80%EF%BC%8C%E6%B7%BB%E5%8A%A0%E5%88%B0pom.xml%E7%9A%84%60">https://mvnrepository.com/（maven仓库）中搜索所需，添加到pom.xml的`</a><dependency>`中，之后点击最右侧的Maven选择刷新。</dependency></p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&lt;dependency&gt; 
+           &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+           &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;
+           &lt;version&gt;2.7.1&lt;/version&gt;
+       &lt;/dependency&gt;
+
+       &lt;dependency&gt;
+           &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+           &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+           &lt;version&gt;1.18.24&lt;/version&gt;
+           &lt;scope&gt;provided&lt;/scope&gt;
+       &lt;/dependency&gt;
+
+       &lt;dependency&gt;
+           &lt;groupId&gt;mysql&lt;/groupId&gt;
+           &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+           &lt;version&gt;8.0.29&lt;/version&gt;
+       &lt;/dependency&gt;
+
+       &lt;dependency&gt;
+           &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+           &lt;artifactId&gt;mybatis-plus-generator&lt;/artifactId&gt;
+           &lt;version&gt;3.5.3&lt;/version&gt;
+       &lt;/dependency&gt;
+
+
+       &lt;dependency&gt;
+           &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+           &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
+           &lt;version&gt;3.5.2&lt;/version&gt;
+       &lt;/dependency&gt;
+
+       &lt;dependency&gt;
+           &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+           &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+           &lt;version&gt;2.7.1&lt;/version&gt;
+       &lt;/dependency&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="application-propeties"><a href="#application-propeties" class="headerlink" title="application.propeties"></a>application.propeties</h3><p>在application.properities中添加<br>serve.port=3000</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">spring.datasource.username=root
+spring.datasource.password=123456
+spring.datasource.url=jdbc:mysql://localhost:3306/kob?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf-8
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="解决空的中间软件包被自动压缩的问题"><a href="#解决空的中间软件包被自动压缩的问题" class="headerlink" title="解决空的中间软件包被自动压缩的问题"></a>解决空的中间软件包被自动压缩的问题</h1><p>点击设置-树外观，关闭压缩空的中间软件包。</p>
+<h1 id="SpringBoot中常用文件夹概念"><a href="#SpringBoot中常用文件夹概念" class="headerlink" title="SpringBoot中常用文件夹概念"></a>SpringBoot中常用文件夹概念</h1><h2 id="pojo层"><a href="#pojo层" class="headerlink" title="pojo层"></a>pojo层</h2><h3 id="将数据库中的table直接翻译成Java中的class"><a href="#将数据库中的table直接翻译成Java中的class" class="headerlink" title="将数据库中的table直接翻译成Java中的class"></a>将数据库中的table直接翻译成Java中的class</h3><p>在pojo中加入User这个类<br><img src="https://img-blog.csdnimg.cn/05454a8f091b4b8b8bf877a551d2d7bc.png" alt="pojo"></p>
+<h2 id="mapper层"><a href="#mapper层" class="headerlink" title="mapper层"></a>mapper层</h2><h3 id="将class里的增删改查（crud）转换成sql语句"><a href="#将class里的增删改查（crud）转换成sql语句" class="headerlink" title="将class里的增删改查（crud）转换成sql语句"></a>将class里的增删改查（crud）转换成sql语句</h3><p>在mapper中添加类UserMapper，我们通过使用MyBatis-plus可以避免使用sql语句。<br><img src="https://img-blog.csdnimg.cn/9e7016d4bf5643a3aa20152ca1e7785b.png" alt="mapper"></p>
+<h2 id="service层"><a href="#service层" class="headerlink" title="service层"></a>service层</h2><p>实现具体业务。</p>
+<h2 id="controller层"><a href="#controller层" class="headerlink" title="controller层"></a>controller层</h2><p>调度service层。<br><img src="https://img-blog.csdnimg.cn/bbcf432642564fc4a6419a414ff7ab18.png" alt="用到数据库的Maaper"><br><img src="https://img-blog.csdnimg.cn/9cca177980ed4f308b702216efc16041.png" alt="返回用户的所有"><br>最后的是返回查询所有用户。<img src="https://img-blog.csdnimg.cn/0b7235244d8b4cc99800bd6adf9695bd.png" alt="MyBatis-Plus"><br>在MyBatis-Plus官网中我们可以查询到返回所有用户。<br>封装条件构造器QueryWrapper，可以调用api。<br><img src="https://img-blog.csdnimg.cn/83466279a6f441e78f1b1c5182693cf2.png" alt="查询某一个用户id"></p>
+<h4 id="实现范围遍历"><a href="#实现范围遍历" class="headerlink" title="实现范围遍历"></a>实现范围遍历</h4><p>ge是大于等于，le是小于等于;gt是大于，lt是等于。<br><img src="https://img-blog.csdnimg.cn/d9ba4eb9170a42ae9c689d7f9a0b4ab5.png" alt="在这里插入图片描述"><br>如上图是一个错误的示范，只返回了一个，然而这个范围却不止一个。<br>正确的如下：（将One改为List）<br><img src="https://img-blog.csdnimg.cn/96fadb72126d4532b66fc79b16997d73.png" alt="在这里插入图片描述"></p>
+<h4 id="插入一条数据"><a href="#插入一条数据" class="headerlink" title="插入一条数据"></a>插入一条数据</h4><p>通过post实现如下<br><img src="https://img-blog.csdnimg.cn/0e6ec579f3be49f5ab9bedfaf4671b8b.png" alt="插入数据"><br>(@PathVariable是spring3.0的一个新功能：接收请求路径中占位符的值)</p>
+<h4 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h4><p><img src="https://img-blog.csdnimg.cn/744ee2ad8093401ea12e38fdad813f53.png" alt="删除数据"></p>
+<h3 id="userController"><a href="#userController" class="headerlink" title="userController"></a>userController</h3><p>其中@RequestMapping可以映射所有的，除此之外还有@GetMapping和@PostMapping。</p>
+<h1 id="target中就是编译完后的结果"><a href="#target中就是编译完后的结果" class="headerlink" title="target中就是编译完后的结果"></a>target中就是编译完后的结果</h1><h1 id="配置授权机制（用户安全）"><a href="#配置授权机制（用户安全）" class="headerlink" title="配置授权机制（用户安全）"></a>配置授权机制（用户安全）</h1><p>在Maven仓库中添加完相关依赖后，再次打开原来的页面会显示一个登陆窗口:<br><img src="https://img-blog.csdnimg.cn/f0b479b69f2842b3aaa7b3b6b846f775.png" alt="登陆"><br>默认用户名是user，密码会每次编译后自动生成<br><img src="https://img-blog.csdnimg.cn/50e5328e66be4a9ba693b51dbf1c3a76.png" alt="password"><br>/logout是退出页面<br><img src="https://img-blog.csdnimg.cn/c253ebf29d4e4cd8b120d25de2d04473.png" alt="退出页面"></p>
+<h2 id="不再使用默认登陆"><a href="#不再使用默认登陆" class="headerlink" title="不再使用默认登陆"></a>不再使用默认登陆</h2><h3 id="键盘上的alt-insert键可以快速插入"><a href="#键盘上的alt-insert键可以快速插入" class="headerlink" title="键盘上的alt+insert键可以快速插入"></a>键盘上的alt+insert键可以快速插入</h3><p><img src="https://img-blog.csdnimg.cn/13376c98df7a4f8dae282250e9ad8598.png" alt="自动生成方法"></p>
+<h2 id="session"><a href="#session" class="headerlink" title="session"></a>session</h2><p><img src="https://img-blog.csdnimg.cn/c245ed2667074805a925da3e1e310abb.png" alt="session"><br>数据库里会存sessionID是谁。<br><img src="https://img-blog.csdnimg.cn/a36799fc192c45518a5fa0cb6bf3bded.png" alt="在这里插入图片描述"><br>如果使用数据库一定要加上Autowired<br><img src="https://img-blog.csdnimg.cn/646d4747e26e4de9b11c05a2bf728987.png" alt="在这里插入图片描述"><br>在密码前加上{noop}让数据库知道并未加密</p>
+<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p><img src="https://img-blog.csdnimg.cn/288f2b5ca9064214b647e791ecc56420.png" alt="加密"><br>encode 将明文转化为密文<br>matches 判断明文与密文是否匹配<br><img src="https://img-blog.csdnimg.cn/780c23535d7f4f91a5d2942eb1b870e7.png" alt="在这里插入图片描述"><br>我们在test类中进行加密，加密后的密文会出现在这里<br><img src="https://img-blog.csdnimg.cn/9c875952a4104520aabf7453e4d69604.png" alt="密文"></p>
+<p>接下来我们可以通过matches判断是否匹配<img src="https://img-blog.csdnimg.cn/8fb5b98e953d4d85a82bf346bafa8b4f.png" alt="在这里插入图片描述"><br>如果在这里显示true就是匹配，false就是不匹配。<br><img src="https://img-blog.csdnimg.cn/2e5594fa24174480adb94eb09ddda0d1.png" alt="在这里插入图片描述"><br>这个时候，我们再回到登陆页面只能通过密文进行登陆。为了解决这种问题，我们可以将数据库中的password改为对应的密文。<br>之后我们设置自动生成密文<br>……</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>开启游戏平台</title>
+    <url>/posts/8ae62c4e.html</url>
+    <content><![CDATA[<p>选择依赖项 ： SpringWeb、Thymeleaf</p>
+<p>127.0.0.1:8080(<a href="http://localhost:8080/">http://localhost:8080/</a>)</p>
+<p>在后端中新建一个软件包：controller</p>
+<p>在IndexController加一个注解@Controller</p>
+<p>加一个父目录@RequestMapping</p>
+<p>注意加上/,网站是<a href="http://127.0.0.1:8080/pk/index/">http://127.0.0.1:8080/pk/index/</a></p>
+<p>在resources的</p>
+<p>在static里存Image</p>
+<p>以上是前后端不分离的写法，返回的是html页面</p>
+<p>如果前后端分离，返回的是一个类</p>
+<h2 id="后端分离的写法"><a href="#后端分离的写法" class="headerlink" title="后端分离的写法"></a>后端分离的写法</h2><p>增加一个映射@RequestMapping</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token function">getBotInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span>list<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"sword"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"tiger"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"apple"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> <span class="token function">getBotInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span><span class="token string">"tiger"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"rating"</span><span class="token punctuation">,</span><span class="token string">"1500"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> map<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>(注意方法的返回)</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">getBotInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Map</span><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> bot1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bot1<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span><span class="token string">"tiger"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bot1<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"rating"</span><span class="token punctuation">,</span><span class="token string">"1500"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> bot2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bot2<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span><span class="token string">"apple"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bot2<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"rating"</span><span class="token punctuation">,</span><span class="token string">"1800"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>bot1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        list<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>bot2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> list<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><p>vue ui </p>
+<p>之后安装两个插件和两个依赖（jqueiry和bootstrap）</p>
+<p>任务 —&gt; serve —&gt; 运行</p>
+<h3 id="去掉"><a href="#去掉" class="headerlink" title="去掉#"></a>去掉#</h3><p>在router的Index里将Hash几个字去掉</p>
+<h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h2><p>每一个vue都有三个：<templete>(html) <script>（js） <style>（css）</p>
+<p>type类型 get和post,</p>
+<p>图片下载路径D:\kob\web\src\assets</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token generics"><span class="token punctuation">&lt;</span>template<span class="token punctuation">></span></span>
+  <span class="token generics"><span class="token punctuation">&lt;</span>div<span class="token punctuation">></span></span>
+      <span class="token generics"><span class="token punctuation">&lt;</span>div<span class="token punctuation">></span></span><span class="token class-name">Bot</span>昵称<span class="token operator">:</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>bot_name<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+      <span class="token generics"><span class="token punctuation">&lt;</span>div<span class="token punctuation">></span></span><span class="token class-name">Bot</span>战力<span class="token operator">:</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>bot_rating<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>router<span class="token operator">-</span>view<span class="token operator">/</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>script<span class="token punctuation">></span></span>
+<span class="token keyword">import</span> $ from <span class="token string">'jquery'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref <span class="token punctuation">&#125;</span> from <span class="token string">'vue'</span><span class="token punctuation">;</span>
+
+export <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  name<span class="token operator">:</span> <span class="token string">"APP"</span><span class="token punctuation">,</span>
+  setup<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">&#123;</span>
+      let bot_name <span class="token operator">=</span>  <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      let bot_rating <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+        url<span class="token operator">:</span> <span class="token string">"http://127.0.0.1:8080/pk/getbotinfo/"</span><span class="token punctuation">,</span>
+        type<span class="token operator">:</span> <span class="token string">"get"</span><span class="token punctuation">,</span>
+        success<span class="token operator">:</span>resp<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">&#123;</span>
+          bot_name<span class="token punctuation">.</span>value <span class="token operator">=</span> resp<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+          bot_rating<span class="token punctuation">.</span>value <span class="token operator">=</span> resp<span class="token punctuation">.</span>rating<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+        bot_name<span class="token punctuation">,</span>
+        bot_rating
+      <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+
+<span class="token generics"><span class="token punctuation">&lt;</span>style<span class="token punctuation">></span></span>
+body <span class="token punctuation">&#123;</span>
+  background<span class="token operator">-</span>image<span class="token operator">:</span> <span class="token function">url</span><span class="token punctuation">(</span><span class="token string">"@/assets/background.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  background<span class="token operator">-</span>size<span class="token operator">:</span> cover
+<span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在BootStrap中的NavBar找到喜欢的样式</p>
+<p>light-dark互相修改</p>
+<p>通过active控制聚焦</p>
+<h2 id="需要的页面"><a href="#需要的页面" class="headerlink" title="需要的页面"></a>需要的页面</h2><p>1.PK </p>
+<p>2.Record</p>
+<p>3.Ranklist</p>
+<p>4.User Bot</p>
+<p>5.404</p>
+<p>防止跳转时刷新，将<a class>换成<router-link class></p>
+<p>公共的组建</p>
+<p>container是一个自适应大小的容器</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html">div.container>div.card>div.card-body<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>user 多一层目录，所以是 from ‘../../../components/ContentField.vue’</p>
+<h2 id="显示聚焦"><a href="#显示聚焦" class="headerlink" title="显示聚焦"></a>显示聚焦</h2><p>首先需要取得当前是什么页面</p>
+<p>选中一个地方后按alt键就会有两个光标一块写了</p>
+<p>冒号是v-bind的简写</p>
+<h2 id="设计这个游戏"><a href="#设计这个游戏" class="headerlink" title="设计这个游戏"></a>设计这个游戏</h2><h2 id="import是否需要用到大括号"><a href="#import是否需要用到大括号" class="headerlink" title="import是否需要用到大括号"></a>import是否需要用到大括号</h2><p>有default不用加大括号（export相当于java中的public）</p>
+</script></templete></p>]]></content>
+  </entry>
+  <entry>
+    <title>markdown常用语法</title>
+    <url>/posts/dc49ce92.html</url>
+    <content><![CDATA[<h1 id="Markdown基本语法"><a href="#Markdown基本语法" class="headerlink" title="Markdown基本语法"></a>Markdown基本语法</h1><h2 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h2><p>在想要设置为标题的文字前面加#来表示<br>一个#是一级标题，两个#是二级标题，以此类推。支持六级标题，标题字号逐级递减降低<br><strong>注：标准语法在#后跟个空格再写文字<br>示例：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none"># 这是一级标题
+## 这是二级标题
+### 这是三级标题
+#### 这是四级标题
+##### 这是五级标题
+###### 这是六级标题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>效果如下</strong></p>
+<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><h2 id="2-字号"><a href="#2-字号" class="headerlink" title="2.字号"></a>2.字号</h2><p>加粗<br>要加粗的文字左右分别用两个 * 号包起来<br>斜体<br>要倾斜的文字左右分别用一个 * 号包起来<br>斜体加粗<br>要倾斜和加粗的文字左右分别用三个 * 号包起来<br>删除线<br>要加删除线的文字左右分别用两个~~号包起来</p>
+<p><strong>示例</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">**这是加粗的文字**
+*这是倾斜的文字*
+***这是斜体加粗的文字***
+~~这是加删除线的文字~~<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>效果如下：</strong><br><strong>这是加粗的文字</strong><br><em>这是倾斜的文字</em><br><strong><em>这是斜体加粗的文字</em></strong><br><del>这是加删除线的文字</del></p>
+<h2 id="3-分割线"><a href="#3-分割线" class="headerlink" title="3.分割线"></a>3.分割线</h2><p>三个或者三个以上的-或者*都可以<br><strong>示例：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">---
+***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a>效果如下：</h2><hr>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在需要引用的文字前加&gt;即可<br><strong>示例</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">&gt;这是需要引用的文字<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>这是需要引用的文字</p>
+</blockquote>
+<h2 id="5-图片"><a href="#5-图片" class="headerlink" title="5.图片"></a>5.图片</h2><pre class="line-numbers language-none"><code class="language-none">![图片下方显示名字](图片url “鼠标放在图片上的显示信息”)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://img-blog.csdnimg.cn/485e7ccfcc3a41098b60155416ef472a.png#pic_center" alt="易剪剪logo" title="这是logo"></p>
+<h2 id="7-列表"><a href="#7-列表" class="headerlink" title="7.列表"></a>7.列表</h2><p><strong>无序列表</strong><br>在内容前面加上*，+，或者-（注意空格）</p>
+<pre class="line-numbers language-none"><code class="language-none">* 无序列表
++ 无序列表
+- 无序列表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>有序列表</strong><br>数字加上.（后面还是要空格）</p>
+<pre class="line-numbers language-none"><code class="language-none">1. 有序列表<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="2">
+<li>有序列表</li>
+</ol>
+<h2 id="8-表格"><a href="#8-表格" class="headerlink" title="8.表格"></a>8.表格</h2><table>
+<thead>
+<tr>
+<th align="left">表头</th>
+<th align="center">表头</th>
+<th align="right">表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">内容</td>
+<td align="center">内容</td>
+<td align="right">内容</td>
+</tr>
+<tr>
+<td align="left">内容</td>
+<td align="center">内容</td>
+<td align="right">内容</td>
+</tr>
+</tbody></table>
+<p>第二行分割表头和内容。</p>
+<pre class="line-numbers language-none"><code class="language-none">- 有一个就行
+-左边加：表示文字居左
+-两边加：表示文字居中
+-右边加：表示文字居右
+注：原生的语法两边都要用 | 包起来。此处省略<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>示例：</strong><br>学号|姓名|年龄<br>:-|:-:|-:<br>123|456|789</p>
+<h2 id="9-代码插入"><a href="#9-代码插入" class="headerlink" title="9. 代码插入"></a>9. 代码插入</h2><p>单行代码</p>
+<blockquote>
+<p><code>单行代码</code></p>
+</blockquote>
+<p>多行代码</p>
+<blockquote>
+<pre class="line-numbers language-none"><code class="language-none">多行代码<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</blockquote>
+<h2 id="10-插入视频或音乐"><a href="#10-插入视频或音乐" class="headerlink" title="10.插入视频或音乐"></a>10.插入视频或音乐</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&amp;id=1385240480&amp;auto=0&amp;height=66"></iframe>
+
+<h2 id="11-文字"><a href="#11-文字" class="headerlink" title="11.文字"></a>11.文字</h2><h3 id="（1）缩进"><a href="#（1）缩进" class="headerlink" title="（1）缩进"></a>（1）缩进</h3><p>在缩进前的文字使用 <code>&amp;emsp;</code><br><strong>示例</strong><br> 我被缩进啦</p>
+<h3 id="（2）居中"><a href="#（2）居中" class="headerlink" title="（2）居中"></a>（2）居中</h3><p>markdown支持html语法，因此可以用<code>&lt;center&gt; &lt;/center&gt;</code>实现居中，</p>
+<center>居中啦</center>
+
+<h3 id="（3）字体和颜色"><a href="#（3）字体和颜色" class="headerlink" title="（3）字体和颜色"></a>（3）字体和颜色</h3><p>font face 字体<br>font size  大小<br>font color 颜色<br>以上可以嵌套使用<br><font color="blued">你好</font></p>
+<h2 id="12-图片大小和位置"><a href="#12-图片大小和位置" class="headerlink" title="12.图片大小和位置"></a>12.图片大小和位置</h2><p>众所周知，html语法很简单，md也支持。</p>
+<p>通过 center 居中 ，把center换成 left 和 right 可以实现居左或者居右<br>width 和 height 调控高度和宽度</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span>  <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>    
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://img-blog.csdnimg.cn/20200507103002365.png<span class="token punctuation">"</span></span> <span class="token attr-name">width</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> 30%</span> <span class="token attr-name">height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> 20%</span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+]]></content>
+  </entry>
+  <entry>
+    <title>配置git环境与项目创建</title>
+    <url>/posts/881ff15a.html</url>
+    <content><![CDATA[<h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><p>首先进入终端,输入cd进入家目录。通过ssh-keygen生成密钥，一路回车。</p>
+<p>cd .ssh 进入ssh文件夹，输入ls，可以看到两个文件：公钥和私钥。通过cat + 私钥名称就可以点开。将密钥复制至ssh密钥后传到acgit。</p>
+<p>在电脑上创建个目录后输入命令git init，会生成一个隐藏文件夹 .git,同时在其中创建一个readme文件</p>
+<h2 id="输入常用的git命令-（git-含义）"><a href="#输入常用的git命令-（git-含义）" class="headerlink" title="输入常用的git命令 （git + 含义）"></a>输入常用的git命令 （git + 含义）</h2><p>git status 查看当前文件夹下有多少文件未被收录到仓库</p>
+<p>git add . 将未收录的给收录了</p>
+<p>git commit -m “创建项目（命名）”   为这段有纪念价值的命令取个亲切的名字吧~之后可以通过历史查看，同时也可以在其中浏览文件获取历史版本</p>
+<ul>
+<li><p>git push 上传云端（执行此命令前需要同步）</p>
+</li>
+<li><p>git pull 将另一台电脑的代码给同步下来</p>
+</li>
+</ul>
+<h2 id="同步云端项目"><a href="#同步云端项目" class="headerlink" title="同步云端项目"></a>同步云端项目</h2><p>创建项目–创建空白项目–………–将命令复制粘贴(可以用shift+insert键)（如果有多个项目，两个都要去掉–global）–推送现有文件夹（选第三个和第五个（将main换成master））</p>
+<h2 id="如何将两个电脑代码同步"><a href="#如何将两个电脑代码同步" class="headerlink" title="* 如何将两个电脑代码同步"></a>* 如何将两个电脑代码同步</h2><p>进入项目后点击克隆，复制ssh克隆命令，打开需要克隆的文件夹，输入git命令git clone + 复制</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>开启SpringBoot的入门学习</title>
+    <url>/posts/33b430d3.html</url>
+    <content><![CDATA[<h3 id="还在学习中，我会在期末考试完成后一直更新的。"><a href="#还在学习中，我会在期末考试完成后一直更新的。" class="headerlink" title="还在学习中，我会在期末考试完成后一直更新的。"></a>还在学习中，我会在期末考试完成后一直更新的。</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      <categories>
+        <category>个人学习</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开启VUE的学习记录</title>
+    <url>/posts/708b490e.html</url>
+    <content><![CDATA[<h3 id="还在学习中，我会在期末考试完成后一直更新的。"><a href="#还在学习中，我会在期末考试完成后一直更新的。" class="headerlink" title="还在学习中，我会在期末考试完成后一直更新的。"></a>还在学习中，我会在期末考试完成后一直更新的。</h3><h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><h4 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h4><h4 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h4><h4 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h4><h4 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h4><h4 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h4><h4 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h4><h4 id="v-on-1"><a href="#v-on-1" class="headerlink" title="v-on"></a>v-on</h4><h4 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h4>]]></content>
+      <categories>
+        <category>个人学习</category>
+      </categories>
+      <tags>
+        <tag>VUE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>STL的个人总结</title>
+    <url>/posts/d87f7e0c.html</url>
+    <content><![CDATA[<h1 id="algorithm库函数"><a href="#algorithm库函数" class="headerlink" title="algorithm库函数"></a>algorithm库函数</h1><h3 id="1-reverse-翻转"><a href="#1-reverse-翻转" class="headerlink" title="1.reverse 翻转"></a>1.reverse 翻转</h3><p>(a.begin(),a.end())  reverse(a,a+n) </p>
+<p> <em>举个栗子</em></p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+using namespace std;
+int main()
+{
+    vector&lt;int&gt;a({1,2,3,4,5});
+    reverse(a.begin(),a.end());
+    for(auto x:a) cout &lt;&lt; x &lt;&lt;' ';
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="2-unique-去重"><a href="#2-unique-去重" class="headerlink" title="2.unique 去重"></a>2.unique 去重</h3><p> <u>需要保证相同元素在一起才行，个人建议先sort </u><br>m=unique(begin,end)-begin //m为不重复的个数<br>或者a.erase(unique(begin,end),end)<br><em>举个栗子</em></p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+using namespace std;
+int main()
+{
+    vector&lt;int&gt;a({1,2,2,3,3,4,4,4});//vector赋初值时不要等号
+    int m=unique(a.begin(),a.end())-a.begin();
+    cout &lt;&lt; m &lt;&lt;endl;
+    for(int i=0;i&lt;m;i++) cout &lt;&lt; a[i]&lt;&lt;' ';
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+#include &lt;vector&gt;
+using namespace std;
+int main()
+{
+    vector&lt;int&gt;a({1,2,2,3,3,4,4,4});//vector赋初值时不要等号
+    a.erase(unique(a.begin(),a.end()),a.end());
+    for(auto x:a) cout &lt;&lt; x &lt;&lt;' ';
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-random-shuffle-随机打乱"><a href="#3-random-shuffle-随机打乱" class="headerlink" title="3.random_shuffle 随机打乱"></a>3.random_shuffle 随机打乱</h3><p>用法同reverse<br>注：可通过更改随机种子，让随机数变得不同</p>
+<pre class="line-numbers language-none"><code class="language-none">include &lt;ctime&gt;
+scand(time(0));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="4-sort-排序"><a href="#4-sort-排序" class="headerlink" title="4.sort 排序"></a>4.sort 排序</h3><p>默认从小到大排序<br>如果需要从大到小排序，那么可以加个<code>greater&lt;int&gt;()</code> 或者自写cmp函数<br><em>举个栗子</em></p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int main()
+{
+    vector&lt;int&gt;a({1,3,2,5,2});
+    sort(a.begin(),a.end(),greater&lt;int&gt;());
+    for(auto x:a) cout &lt;&lt; x &lt;&lt;' ';
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="给结构体排序："><a href="#给结构体排序：" class="headerlink" title="给结构体排序："></a>给结构体排序：</h4><p>1.重载小于号</p>
+<pre class="line-numbers language-none"><code class="language-none">struct Rec
+{
+    int x,y;
+    bool operator&lt;(const Rec &amp;t)const
+    {
+        return x&lt;t.x;//t是什么?例如a[0]与a[1]比较,t就是a[1]
+    }a[N];
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2.cmp函数</p>
+<pre class="line-numbers language-none"><code class="language-none">bool cmp(Rec a, Rec b)
+{
+    return a.x &lt; b.x;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-lower-bound-upper-bound-二分，区别在于后者无等于"><a href="#5-lower-bound-upper-bound-二分，区别在于后者无等于" class="headerlink" title="5.lower_bound/upper_bound 二分，区别在于后者无等于"></a>5.lower_bound/upper_bound 二分，区别在于后者无等于</h3><p><code>int *p=lower_bound(begin,end,a);//*p为大于等于a的第一个元素</code><br><code>int t=lower_bound(begin,end,a)-begin;//*p为大于等于a的第一个元素的下标</code></p>
+<p>其它注意：queue不能随机遍历</p>
+<h3 id="最后：部分例题"><a href="#最后：部分例题" class="headerlink" title="最后：部分例题"></a>最后：部分例题</h3><p><code>68. 0到n-1中缺失的数字</code></p>
+<pre class="line-numbers language-none"><code class="language-none">class Solution {
+public:
+    int getMissingNumber(vector&lt;int&gt;&amp; nums) {
+        unordered_set&lt;int&gt; S;
+        //将所有可能的数字都放进哈希表
+        for(int i=0;i&lt;=nums.size();i++) S.insert(i);
+        //将已有的删掉，剩下的那个数字就是需要补充的
+        for(auto x:nums) S.erase(x);
+        return *S.begin();
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>32. 调整数组顺序使奇数位于偶数前面</code></p>
+<pre class="line-numbers language-none"><code class="language-none">class Solution {
+public:
+    void reOrderArray(vector&lt;int&gt; &amp;array) {
+/*思路：让i指针遍历的都为奇数，j指针遍历的都为偶数
+i:若为奇数那么就一直往后走;j:若为偶数那么就一直往前走
+当两个奇数都不能走的时候就说明i指向偶数，j指向奇数，此时交换两个指针
+这个过程一直到i与j相遇或者错开时停下
+*/
+        int i = 0, j = array.size() - 1;
+        while(i &lt; j)
+        {
+            while(i &lt; j &amp;&amp; array[i] % 2) i++;
+            while(i &lt; j &amp;&amp; array[j] % 2 == 0) j--;
+            if(i &lt; j) swap(array[i], array[j]);
+        }
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>17. 从尾到头打印链表</code></p>
+<pre class="line-numbers language-none"><code class="language-none">/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector&lt;int&gt; printListReversingly(ListNode* head) {
+        vector&lt;int&gt;res;
+        for(auto p = head; p; p = p-&gt;next) res.push_back(p-&gt;val);
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>20. 用两个栈实现队列</code></p>
+<pre class="line-numbers language-none"><code class="language-none">/*例如搬书，自己手上有几十本书，需要将最底下那本抽出来。
+于是，我们可以找个工具人，将除了最底下的那本都一本一本甩给他。
+最后抽出那本书后，再让他把他手上的书按顺序给我。
+*/
+class MyQueue {
+public:
+    /** Initialize your data structure here. */
+    stack&lt;int&gt; s1, s2;
+
+    MyQueue() {
+
+    }
+
+    /** Push element x to the back of queue. */
+    void push(int x) {
+        s1.push(x);
+    }
+
+    /** Removes the element from in front of queue and returns that element. */
+    int pop() {
+        while(s1.size()&gt;1) s2.push(s1.top()),s1.pop();//把书都甩给工具人，自己只拿一本书
+        int t = s1.top();
+        s1.pop();
+        while(s2.size()) s1.push(s2.top()),s2.pop();//那本书被取出来了，让工具人把书还给我，不需要他了，赶他下线
+        return t;
+    }
+
+    /** Get the front element. */
+    int peek() {
+        while(s1.size()&gt;1) s2.push(s1.top()),s1.pop();//把书都甩给工具人，自己只拿一本书
+        int t = s1.top();
+        while(s2.size()) s1.push(s2.top()),s2.pop();//那本书被取出来了，让工具人把书还给我，不需要他了，赶他下线
+        return t;
+    }
+
+    /** Returns whether the queue is empty. */
+    bool empty() {
+        return s1.empty();
+    }
+};
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue obj = MyQueue();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.peek();
+ * bool param_4 = obj.empty();
+ */<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>53. 最小的k个数</code></p>
+<pre class="line-numbers language-none"><code class="language-none">class Solution {
+public:
+    vector&lt;int&gt; getLeastNumbers_Solution(vector&lt;int&gt; input, int k) {
+        sort(input.begin(), input.end());
+        vector&lt;int&gt;res;
+        for (int i = 0; i &lt; k; i ++ ) res.push_back(input[i]);
+        return res;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>75. 和为S的两个数字</code></p>
+<pre class="line-numbers language-none"><code class="language-none">/*在哈希表查看有没有可以凑成一对的那个数字*/
+class Solution {
+public:
+    vector&lt;int&gt; findNumbersWithSum(vector&lt;int&gt;&amp; nums, int target) {
+        unordered_set&lt;int&gt;S;
+        for(auto x:nums)
+        {
+            if(S.count(target-x)) return {x,target-x};//用count函数
+            S.insert(x);
+        }
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>51. 数字排列</code></p>
+<pre class="line-numbers language-none"><code class="language-none">class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; permutation(vector&lt;int&gt;&amp; nums) {
+        //先排序之后才能使用next_permutation(begin,end)
+        sort(nums.begin(),nums.end());
+        vector&lt;vector&lt;int&gt;&gt;res;
+        do{
+            res.push_back(nums);
+        }while(next_permutation(nums.begin(),nums.end()));
+        return res;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>26. 二进制中1的个数</code></p>
+<pre class="line-numbers language-none"><code class="language-none">class Solution {
+public:
+    int NumberOf1(int n) {
+        int res = 0;
+        for (int i = 0; i &lt; 32; i++)
+            if (n &gt;&gt; i &amp; 1)
+                res++;
+    return res;
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>862. 三元组排序</code></p>
+<pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+const int N = 10010;
+struct Data
+{
+  int x;
+  double y;
+  string z;
+
+  bool operator&lt; (const Data &amp;t) const
+  {
+      return x &lt; t.x;
+  }
+}a[N];
+int main()
+{
+    int n;
+    cin &gt;&gt; n;
+    for (int i = 0; i &lt; n; i ++ ) cin &gt;&gt; a[i].x &gt;&gt;a[i].y &gt;&gt; a[i].z;
+    sort(a, a+n);
+    //printf输出字符串需要加.c_str())
+    for (int i = 0; i &lt; n; i ++ ) printf("%d %.2lf %s\n",a[i].x,a[i].y,a[i].z.c_str());
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+]]></content>
+  </entry>
+</search>
