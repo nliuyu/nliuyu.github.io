@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>js基础语法学习</title>
+    <url>/posts/e0deaa88.html</url>
+    <content><![CDATA[<h1 id="1-1-JS的调用方式与执行顺序"><a href="#1-1-JS的调用方式与执行顺序" class="headerlink" title="1.1 JS的调用方式与执行顺序"></a>1.1 JS的调用方式与执行顺序</h1><h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>HTML页面中的任意位置加上<script type="module"></script>即可。</p>
+<p>常见的使用方式有以下几种“</p>
+<ul>
+<li><p>直接在<script type="module"></script>标签内写JS代码。</p>
+</li>
+<li><p>直接引入文件：</p>
+<p><code>&lt;script type="module" src="/static/js/index.js"&gt;&lt;/scipt&gt;</code>。</p>
+</li>
+<li><p>将所需的代码通过<code>import</code>关键字引入到当前作用域。</p>
+</li>
+</ul>
+<p>例如：</p>
+<p><code>/static/js/index.js</code>文件中的内容为：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> name<span class="token operator">=</span><span class="token string">"cxk"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span><span class="token punctuation">{</span>
+	name<span class="token punctuation">,</span>
+	print
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>&lt;script type="module"&gt;&lt;/script&gt;</code>中的内容为：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"module"</span><span class="token operator">&gt;</span>
+	<span class="token keyword">import</span> <span class="token punctuation">{</span>name<span class="token punctuation">,</span> print <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"/static/js/injdex.js"</span><span class="token punctuation">;</span>
+	
+	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h2><ol>
+<li>类似于HTML与CSS按从上到下的顺序执行；</li>
+<li>事件驱动执行；</li>
+</ol>
+<h2 id="HTML，CSS，JavaScript三者之间的关系"><a href="#HTML，CSS，JavaScript三者之间的关系" class="headerlink" title="HTML，CSS，JavaScript三者之间的关系"></a>HTML，CSS，JavaScript三者之间的关系</h2><ol>
+<li>CSS控制HTML</li>
+<li>Javascript控制CSS与HTML</li>
+<li>为了方便开发与维护，尽量按照上述顺序写代码。例如：不要在HTML中调用JavaScript的函数。</li>
+</ol>
+<h1 id="变量与运算符"><a href="#变量与运算符" class="headerlink" title="变量与运算符"></a>变量与运算符</h1><h2 id="let与const"><a href="#let与const" class="headerlink" title="let与const"></a><code>let</code>与<code>const</code></h2><p>用来声明变量，作用范围为当前作用域。</p>
+<ul>
+<li><code>let</code>用来定义变量；</li>
+<li><code>const</code>用来定义常量；</li>
+</ul>
+<p>例如：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> s <span class="token operator">=</span> <span class="token string">"cxk"</span><span class="token punctuation">,</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> d <span class="token operator">=</span> n<span class="token punctuation">{</span>
+	name<span class="token operator">:</span> <span class="token string">"xiuaoheizi"</span><span class="token punctuation">,</span>
+	age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> n <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><ul>
+<li><code>number</code>：数值变量，例如<code>1</code>,<code>2.5</code></li>
+<li><code>string</code>：字符串，例如<code>cxk</code>，<code>xiaoheizi</code>，单引号与双引号均可。字符串中的每个字符为只读类型。</li>
+<li><code>boolean</code>：布尔值，例如<code>true</code>,<code>false</code></li>
+<li><code>object</code>：对象，类似于<code>C++</code>中的指针，例如<code>[1,2,3]</code>，<code>{name:"cxk",age:18}</code>，<code>null</code></li>
+<li><code>undefined</code>：未定义的变量</li>
+</ul>
+<p>类似于Python，JavaScript中的变量类型可以动态变化。</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>与<code>C++</code>、``Python`类似，不同点：</p>
+<ul>
+<li><code>**</code>表示乘方</li>
+<li>等于与不等于用<code>===</code>和<code>!==</code></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>MyBatis框架的学习（更新中）</title>
     <url>/posts/702709a0.html</url>
     <content><![CDATA[<p>框架framework就是对通用代码的封装，提前写好了一些接口和类，一般以jar包的形式存在。</p>
@@ -106,229 +180,6 @@
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span>  <span class="token attr-name">align</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>    
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://img-blog.csdnimg.cn/20200507103002365.png<span class="token punctuation">"</span></span> <span class="token attr-name">width</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> 30%</span> <span class="token attr-name">height</span> <span class="token attr-value"><span class="token punctuation attr-equals">=</span> 20%</span> <span class="token punctuation">/&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-]]></content>
-  </entry>
-  <entry>
-    <title>js基础语法学习</title>
-    <url>/posts/e0deaa88.html</url>
-    <content><![CDATA[<h1 id="1-1-JS的调用方式与执行顺序"><a href="#1-1-JS的调用方式与执行顺序" class="headerlink" title="1.1 JS的调用方式与执行顺序"></a>1.1 JS的调用方式与执行顺序</h1><h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>HTML页面中的任意位置加上<script type="module"></script>即可。</p>
-<p>常见的使用方式有以下几种“</p>
-<ul>
-<li><p>直接在<script type="module"></script>标签内写JS代码。</p>
-</li>
-<li><p>直接引入文件：</p>
-<p><code>&lt;script type="module" src="/static/js/index.js"&gt;&lt;/scipt&gt;</code>。</p>
-</li>
-<li><p>将所需的代码通过<code>import</code>关键字引入到当前作用域。</p>
-</li>
-</ul>
-<p>例如：</p>
-<p><code>/static/js/index.js</code>文件中的内容为：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> name<span class="token operator">=</span><span class="token string">"cxk"</span><span class="token punctuation">;</span>
-
-<span class="token keyword">function</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">export</span><span class="token punctuation">{</span>
-	name<span class="token punctuation">,</span>
-	print
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><code>&lt;script type="module"&gt;&lt;/script&gt;</code>中的内容为：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"module"</span><span class="token operator">&gt;</span>
-	<span class="token keyword">import</span> <span class="token punctuation">{</span>name<span class="token punctuation">,</span> print <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"/static/js/injdex.js"</span><span class="token punctuation">;</span>
-	
-	console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h2><ol>
-<li>类似于HTML与CSS按从上到下的顺序执行；</li>
-<li>事件驱动执行；</li>
-</ol>
-<h2 id="HTML，CSS，JavaScript三者之间的关系"><a href="#HTML，CSS，JavaScript三者之间的关系" class="headerlink" title="HTML，CSS，JavaScript三者之间的关系"></a>HTML，CSS，JavaScript三者之间的关系</h2><ol>
-<li>CSS控制HTML</li>
-<li>Javascript控制CSS与HTML</li>
-<li>为了方便开发与维护，尽量按照上述顺序写代码。例如：不要在HTML中调用JavaScript的函数。</li>
-</ol>
-<h1 id="变量与运算符"><a href="#变量与运算符" class="headerlink" title="变量与运算符"></a>变量与运算符</h1><h2 id="let与const"><a href="#let与const" class="headerlink" title="let与const"></a><code>let</code>与<code>const</code></h2><p>用来声明变量，作用范围为当前作用域。</p>
-<ul>
-<li><code>let</code>用来定义变量；</li>
-<li><code>const</code>用来定义常量；</li>
-</ul>
-<p>例如：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> s <span class="token operator">=</span> <span class="token string">"cxk"</span><span class="token punctuation">,</span> x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
-
-<span class="token keyword">let</span> d <span class="token operator">=</span> n<span class="token punctuation">{</span>
-	name<span class="token operator">:</span> <span class="token string">"xiuaoheizi"</span><span class="token punctuation">,</span>
-	age<span class="token operator">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> n <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><ul>
-<li><code>number</code>：数值变量，例如<code>1</code>,<code>2.5</code></li>
-<li><code>string</code>：字符串，例如<code>cxk</code>，<code>xiaoheizi</code>，单引号与双引号均可。字符串中的每个字符为只读类型。</li>
-<li><code>boolean</code>：布尔值，例如<code>true</code>,<code>false</code></li>
-<li><code>object</code>：对象，类似于<code>C++</code>中的指针，例如<code>[1,2,3]</code>，<code>{name:"cxk",age:18}</code>，<code>null</code></li>
-<li><code>undefined</code>：未定义的变量</li>
-</ul>
-<p>类似于Python，JavaScript中的变量类型可以动态变化。</p>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>与<code>C++</code>、``Python`类似，不同点：</p>
-<ul>
-<li><code>**</code>表示乘方</li>
-<li>等于与不等于用<code>===</code>和<code>!==</code></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>python作业的重做</title>
-    <url>/posts/50ab5143.html</url>
-    <content><![CDATA[<h1 id="1-题目分析与思路描述"><a href="#1-题目分析与思路描述" class="headerlink" title="1 题目分析与思路描述"></a>1 题目分析与思路描述</h1><h2 id="1-1-题目描述"><a href="#1-1-题目描述" class="headerlink" title="1.1 题目描述"></a>1.1 题目描述</h2><p>用字典+列表 实现以下通讯录的增删改查功能:<br><img src="https://img-blog.csdnimg.cn/bc637a5a1836415e96a8e86530b7fad4.png" alt="题目"></p>
-<h2 id="1-2-分析与思路"><a href="#1-2-分析与思路" class="headerlink" title="1.2 分析与思路"></a>1.2 分析与思路</h2><h3 id="1-2-1-增"><a href="#1-2-1-增" class="headerlink" title="1.2.1 增"></a>1.2.1 增</h3><p>首先，我们可以用字典来储存每一位联系人的信息：姓名作为联系人的键，手机号、邮箱、地址作为联系人这个键的值。<br>那么，用什么来储存这些联系人的字典呢？由于元组与集合的元素不能被修改，而本题通讯录中的联系人信息是要实现“增删改查”的，因此最佳的选择当然是使用列表。<br>所以，我们来创建这两个容器:</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">list</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-dict1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> dict2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> dict3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> … <span class="token comment"># 此处省略无数个联系人信息构成的字典，之后我们在完整代码中通过循环来实现。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>容器创建好了，但是里面没有内容啊，怎么能说是通讯录呢？因此，我们需要“增”！实现第一个功能：添加联系人！<br>我们要增加什么呢？<em>当然是联系人以及其对应的信息：</em>第一是新增一个字典并在这个字典里增加联系人的信息，第二是将这个字典增加到列表中。前者使用字典的增加方法<code>update()</code>来新增一个字典并用<code>字典名[键]=值</code>的方式来添加这个新增字典里的条目，后者使用列表的增加方法<code>append()</code>增加字典这个元素。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">name<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的姓名："</span><span class="token punctuation">)</span>
-phone<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的手机号："</span><span class="token punctuation">)</span>
-email<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的邮箱："</span><span class="token punctuation">)</span>
-address<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的地址："</span><span class="token punctuation">)</span>
-
-<span class="token builtin">dict</span><span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"姓名"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span> <span class="token string">"手机号"</span><span class="token punctuation">:</span> phone<span class="token punctuation">,</span> <span class="token string">"电子邮箱"</span><span class="token punctuation">:</span> email<span class="token punctuation">,</span> <span class="token string">",联系地址"</span><span class="token punctuation">:</span> address<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token builtin">list</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">dict</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>于是，我们的通讯录中就有了第一个联系人，通过循环我们可以再生出无数个联系人，正如两千年前的先哲老子所言<code>一生二，二生三，三生万物</code>。</p>
-<h3 id="1-2-2-查"><a href="#1-2-2-查" class="headerlink" title="1.2.2 查"></a>1.2.2 查</h3><p>好的，那么当我们有了很多个联系人的时候，我们应该怎么知道这个通讯录中联系人有哪些以及对应的信息呢？于是我们第二个功能的需求就出来了，那就是“查”！<br>查什么？根据题意，一是用户可以通过遍历查看这个通讯录所有的联系人以及信息（功能2），二是用户可以输入某个联系人的姓名查看其对应的信息。（功能5）<br>先来实现前者（功能2），我们可以用<code>for循环</code>遍历整个通讯录列表里的元素<em>字典</em>再用<code>for循环</code>遍历<code>items()</code>的方法来获取字典中的<em>键和值</em>。</p>
-<pre class="line-numbers language-PYTHON" data-language="PYTHON"><code class="language-PYTHON">for i in list:
-	for k, v in i.items() # k, v分别表示获取联系人的姓名（键）以及联系人的信息
-	print(k + ':' + v)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>再来实现后者（功能5）:这是功能2的简化版，直接如法炮制。</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
-	<span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> i<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># k, v分别表示获取联系人的姓名（键）以及联系人的信息</span>
-	<span class="token keyword">print</span><span class="token punctuation">(</span>k <span class="token operator">+</span> <span class="token string">':'</span> <span class="token operator">+</span> v<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="1-2-3-删"><a href="#1-2-3-删" class="headerlink" title="1.2.3 删"></a>1.2.3 删</h3><p>在输入联系人的过程中，一定有不小心输错信息的时候或者也会存在有些联系人在创建之后没有再存在通讯录必要的情况，这个时候我们首先想到的是删掉这个联系人及其信息。对应在程序里删除的是通讯录列表里的一个<code>字典</code>元素。<br>我们来一起复习一下，列表删除元素的方式有哪些呢？列举如下：<code>del命令</code>，<code>pop()方法</code>，<code>remove()方法</code>。那么我们应该用哪一个呢？以下给出分析：</p>
-<ol>
-<li><p><code>del 列表名[索引]</code>可以通过正向索引和反向索引的方式删掉对应的列表元素。如果我们需要使用它，就要先用<code>index()</code>方法找到对应的索引号。<img src="https://img-blog.csdnimg.cn/ccfac704c3a94352a218637ad14c6f6a.png" alt="del指令"></p>
-</li>
-<li><p><code>列表名.pop(索引)</code>，如果我们需要使用它，也要先用<code>index()</code>方法找到对应的索引号。<img src="https://img-blog.csdnimg.cn/3ecd3c75ed0242478a7547725b945c34.png" alt="pop()方法"></p>
-</li>
-<li><p><code>列表.remove(元素值)</code>，可以直接通过输入的值删除，较为简单。<img src="https://img-blog.csdnimg.cn/74f1ed4ada8b46cab2db146577232349.png" alt="remove()方法"></p>
-<p>综上所述，我们选用方便使用的<code>remove()</code>方法。<br><img src="https://img-blog.csdnimg.cn/9368de11809a4b0f82a1110a23b9ac6e.png" alt="使用remove()方法删除通讯录的联系人"><br>如上述代码所示，我们可以通过i来遍历通讯录的列表：如果要删除的联系人的姓名是列表中某一个字典的值，那么整个条目就会被移除。</p>
-<h3 id="1-2-4-改"><a href="#1-2-4-改" class="headerlink" title="1.2.4 改"></a>1.2.4 改</h3><p>结合上述，如果在输入联系人的过程中，我们不小心输错了联系人的信息 ，可以使用删除这个联系人再重新增加这个联系人的方式实现。但是，这种方式过于繁琐了。<br>因此，我们能不能直接修改呢？以下是本人对字典更新方式的简述：</p>
-<blockquote>
-<p>在字典创建之后通过字典名[键]=值的方法进行更新，如果键在字典中不存在就会执行添加条目操作，如果键存在就会执行修改条目操作。</p>
-</blockquote>
-</li>
-</ol>
-<p>于是，我们可以用以下的方式来修改字典中的值：<br><img src="https://img-blog.csdnimg.cn/fd912e897ad04afcb233955b92781c31.png" alt="修改通讯录中联系人信息"><br>如同上述的“删”使用的方法一样，我们也是用i来遍历通讯录的列表。随后，找到需要修改的联系人，并逐一给其中的每一个键赋上对应的值作为该联系人的信息。</p>
-<h3 id="1-2-5-注意事项"><a href="#1-2-5-注意事项" class="headerlink" title="1.2.5 注意事项"></a>1.2.5 注意事项</h3><ol>
-<li>新增联系人时需要判断用户输入的信息是否不为空，如果用户输入的字符串为空<code>' '</code>那么需要提醒用户重新输入。</li>
-<li>查询、修改、删除联系人时需要判断原通讯录是不否为空以及该联系人是否在原通讯录中。</li>
-</ol>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">-</span> 可以使用`<span class="token builtin">len</span><span class="token punctuation">(</span><span class="token punctuation">)</span>`函数判断通讯录是否为空：如果为该列表长度为<span class="token number">0</span>则表明没有元素，提醒用户该通讯录没有信息。
-<span class="token operator">-</span> 可以使用`<span class="token keyword">in</span>`运算符判断该联系人是否存在于通讯录：用i来遍历通讯录的列表，再使用`values<span class="token punctuation">(</span><span class="token punctuation">)</span>`方法来获取对应的值，判断姓名是否存在。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<ol start="3">
-<li>在修改通讯录联系人信息的时候，可以先将该联系人信息打印出来，以方便用户修改。</li>
-<li>如果用户输入了不在功能内的其它字符也需要有对应的提示。 <h1 id="2-完整代码实现"><a href="#2-完整代码实现" class="headerlink" title="2 完整代码实现"></a>2 完整代码实现</h1></li>
-</ol>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">list</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"欢迎使用通讯录："</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"1.添加联系人"</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"2.查看通讯录"</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"3.删除联系人"</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"4.修改联系人信息"</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"5.查找联系人"</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"6.退出"</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token operator">*</span><span class="token number">20</span><span class="token punctuation">)</span>
-    <span class="token builtin">dict</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-    fun <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入功能序号："</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> fun <span class="token operator">==</span> <span class="token string">'1'</span><span class="token punctuation">:</span>
-        name <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的姓名："</span><span class="token punctuation">)</span>
-        phone <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的手机号："</span><span class="token punctuation">)</span>
-        email <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的邮箱："</span><span class="token punctuation">)</span>
-        address <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的地址："</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> name <span class="token operator">==</span> <span class="token string">''</span> <span class="token keyword">or</span> phone <span class="token operator">==</span> <span class="token string">''</span> <span class="token keyword">or</span> email <span class="token operator">==</span> <span class="token string">''</span> <span class="token keyword">or</span> address <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'请输入正确信息'</span><span class="token punctuation">)</span>
-            <span class="token keyword">continue</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token builtin">dict</span><span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"姓名"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span>
-                         <span class="token string">"手机号"</span><span class="token punctuation">:</span> phone<span class="token punctuation">,</span>
-                         <span class="token string">"电子邮箱"</span><span class="token punctuation">:</span> email<span class="token punctuation">,</span>
-                         <span class="token string">"联系地址"</span><span class="token punctuation">:</span> address<span class="token punctuation">}</span><span class="token punctuation">)</span>
-            <span class="token builtin">list</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">dict</span><span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"保存成功"</span><span class="token punctuation">)</span>
-    <span class="token keyword">elif</span> fun <span class="token operator">==</span> <span class="token string">'2'</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"通讯录没有信息"</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
-            <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> i<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token string">':'</span><span class="token operator">+</span>v<span class="token punctuation">)</span>
-    <span class="token keyword">elif</span> fun <span class="token operator">==</span> <span class="token string">'3'</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">:</span>
-            name2<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入要删除的联系人姓名："</span><span class="token punctuation">)</span>
-            flag<span class="token operator">=</span><span class="token number">0</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> name2 <span class="token keyword">in</span> i<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                    <span class="token builtin">list</span><span class="token punctuation">.</span>remove<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
-                    flag<span class="token operator">=</span><span class="token number">1</span>
-                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"删除成功"</span><span class="token punctuation">)</span>
-                    <span class="token keyword">break</span>
-            <span class="token keyword">if</span> flag<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
-                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"该联系人不在通讯录中"</span><span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"通讯录无信息"</span><span class="token punctuation">)</span>
-    <span class="token keyword">elif</span> fun<span class="token operator">==</span><span class="token string">'4'</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">:</span>
-            info2<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入要修改的联系人姓名："</span><span class="token punctuation">)</span>
-            flag<span class="token operator">=</span><span class="token number">0</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> info2 <span class="token keyword">in</span> i<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                    flag<span class="token operator">=</span><span class="token number">1</span>
-                    <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> i<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                        <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token string">':'</span><span class="token operator">+</span>v<span class="token punctuation">)</span>
-                    name2 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入新的姓名："</span><span class="token punctuation">)</span>
-                    phone2 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入新的手机号："</span><span class="token punctuation">)</span>
-                    email2 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入新的邮箱："</span><span class="token punctuation">)</span>
-                    address2 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入新的地址："</span><span class="token punctuation">)</span>
-                    i<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"姓名"</span><span class="token punctuation">:</span> name2<span class="token punctuation">,</span>
-                              <span class="token string">"手机号"</span><span class="token punctuation">:</span> phone2<span class="token punctuation">,</span>
-                              <span class="token string">"电子邮箱"</span><span class="token punctuation">:</span> email2<span class="token punctuation">,</span>
-                              <span class="token string">"联系地址"</span><span class="token punctuation">:</span> address2<span class="token punctuation">}</span><span class="token punctuation">)</span>
-                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>
-                    <span class="token keyword">break</span>
-            <span class="token keyword">if</span> flag<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
-                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"该联系人不在通讯录中"</span><span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"通讯录无信息"</span><span class="token punctuation">)</span>
-    <span class="token keyword">elif</span> fun<span class="token operator">==</span><span class="token string">'5'</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">:</span>
-            name3<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入要查找的联系人姓名："</span><span class="token punctuation">)</span>
-            flag<span class="token operator">=</span><span class="token number">0</span>
-            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
-                <span class="token keyword">if</span> name3 <span class="token keyword">in</span> i<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                    flag<span class="token operator">=</span><span class="token number">1</span>
-                    <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> i<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                        <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token string">':'</span><span class="token operator">+</span>v<span class="token punctuation">)</span>
-                    <span class="token keyword">break</span>
-            <span class="token keyword">if</span> flag<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
-                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"该联系人不在通讯录中"</span><span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"通讯录无信息"</span><span class="token punctuation">)</span>
-    <span class="token keyword">elif</span> fun<span class="token operator">==</span><span class="token string">'6'</span><span class="token punctuation">:</span>
-        <span class="token keyword">break</span>
-    <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"您输入的功能不存在，请输入正确的功能序号"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<h1 id="3-总结与复盘"><a href="#3-总结与复盘" class="headerlink" title="3 总结与复盘"></a>3 总结与复盘</h1><p>首先，在写程序的时候应该首先思考的是该题大致应该如何解决。实现了主要功能之后再去考虑在使用可能出现的问题与情况，或者在代码运行的过程中通过报错进行修改与调试。</p>
-<blockquote>
-<p>未完，10月29日必更完</p>
-</blockquote>
 ]]></content>
   </entry>
   <entry>
@@ -756,6 +607,22 @@ dic<span class="token operator">=</span><span class="token builtin">dict</span><
 ]]></content>
   </entry>
   <entry>
+    <title>提升打字速度小技巧</title>
+    <url>/posts/f8192249.html</url>
+    <content><![CDATA[<h1 id="一、英文"><a href="#一、英文" class="headerlink" title="一、英文"></a>一、英文</h1><h2 id="1-删除一整个单词"><a href="#1-删除一整个单词" class="headerlink" title="1. 删除一整个单词"></a>1. 删除一整个单词</h2><p>通过Ctrl+Backspace可以实现；</p>
+<p>与此同时，对于中文，我们也可以通过这种操作删除一个词。</p>
+<h2 id="2-删除一整行单词"><a href="#2-删除一整行单词" class="headerlink" title="2. 删除一整行单词"></a>2. 删除一整行单词</h2><p>Shift+Home可以选中一整行，因此我们可以通过Shift+Home+Backspace完成删除一整行的操作。</p>
+<h2 id="3-训练"><a href="#3-训练" class="headerlink" title="3. 训练"></a>3. 训练</h2><h3 id="（1）训练常用词"><a href="#（1）训练常用词" class="headerlink" title="（1）训练常用词"></a>（1）训练常用词</h3><p>10fastfigers.com</p>
+<h3 id="（2）训练薄弱字母"><a href="#（2）训练薄弱字母" class="headerlink" title="（2）训练薄弱字母"></a>（2）训练薄弱字母</h3><p>keybr.com</p>
+<h1 id="二、中文"><a href="#二、中文" class="headerlink" title="二、中文"></a>二、中文</h1><h2 id="1-偏盘部首辅助找字"><a href="#1-偏盘部首辅助找字" class="headerlink" title="1. 偏盘部首辅助找字"></a>1. 偏盘部首辅助找字</h2><p>可以在输入拼音后加上Tab键输入偏旁部首。</p>
+<h2 id="2-Ctrl-首字母可以快速定位到该字母前方"><a href="#2-Ctrl-首字母可以快速定位到该字母前方" class="headerlink" title="2. Ctrl+首字母可以快速定位到该字母前方"></a>2. Ctrl+首字母可以快速定位到该字母前方</h2><h2 id="3-启用u模式，通过偏旁部首组成生僻字"><a href="#3-启用u模式，通过偏旁部首组成生僻字" class="headerlink" title="3. 启用u模式，通过偏旁部首组成生僻字"></a>3. 启用u模式，通过偏旁部首组成生僻字</h2><h2 id="4-启用v模式，可以方便数字的使用和计算"><a href="#4-启用v模式，可以方便数字的使用和计算" class="headerlink" title="4. 启用v模式，可以方便数字的使用和计算"></a>4. 启用v模式，可以方便数字的使用和计算</h2><p>如v123可以快速输入繁体</p>
+<h2 id="5-简拼"><a href="#5-简拼" class="headerlink" title="5. 简拼"></a>5. 简拼</h2><p>rq 输入今天的日期</p>
+<p>sq 输入现在星期几</p>
+<p>sj 输入现在时间点</p>
+<h2 id="6-固定首位"><a href="#6-固定首位" class="headerlink" title="6. 固定首位"></a>6. 固定首位</h2><h2 id="7-自定义快捷短语"><a href="#7-自定义快捷短语" class="headerlink" title="7. 自定义快捷短语"></a>7. 自定义快捷短语</h2><p>比如可以让字母输出标点符号</p>
+<h2 id="8-美化输入法皮肤，提升效率"><a href="#8-美化输入法皮肤，提升效率" class="headerlink" title="8. 美化输入法皮肤，提升效率"></a>8. 美化输入法皮肤，提升效率</h2>]]></content>
+  </entry>
+  <entry>
     <title>开启VUE的学习记录</title>
     <url>/posts/708b490e.html</url>
     <content><![CDATA[<h3 id="还在学习中，我会在期末考试完成后一直更新的。"><a href="#还在学习中，我会在期末考试完成后一直更新的。" class="headerlink" title="还在学习中，我会在期末考试完成后一直更新的。"></a>还在学习中，我会在期末考试完成后一直更新的。</h3><h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><h4 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h4><h4 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h4><h4 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h4><h4 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h4><h4 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h4><h4 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h4><h4 id="v-on-1"><a href="#v-on-1" class="headerlink" title="v-on"></a>v-on</h4><h4 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h4>]]></content>
@@ -898,22 +765,6 @@ body <span class="token punctuation">&#123;</span>
       </tags>
   </entry>
   <entry>
-    <title>提升打字速度小技巧</title>
-    <url>/posts/f8192249.html</url>
-    <content><![CDATA[<h1 id="一、英文"><a href="#一、英文" class="headerlink" title="一、英文"></a>一、英文</h1><h2 id="1-删除一整个单词"><a href="#1-删除一整个单词" class="headerlink" title="1. 删除一整个单词"></a>1. 删除一整个单词</h2><p>通过Ctrl+Backspace可以实现；</p>
-<p>与此同时，对于中文，我们也可以通过这种操作删除一个词。</p>
-<h2 id="2-删除一整行单词"><a href="#2-删除一整行单词" class="headerlink" title="2. 删除一整行单词"></a>2. 删除一整行单词</h2><p>Shift+Home可以选中一整行，因此我们可以通过Shift+Home+Backspace完成删除一整行的操作。</p>
-<h2 id="3-训练"><a href="#3-训练" class="headerlink" title="3. 训练"></a>3. 训练</h2><h3 id="（1）训练常用词"><a href="#（1）训练常用词" class="headerlink" title="（1）训练常用词"></a>（1）训练常用词</h3><p>10fastfigers.com</p>
-<h3 id="（2）训练薄弱字母"><a href="#（2）训练薄弱字母" class="headerlink" title="（2）训练薄弱字母"></a>（2）训练薄弱字母</h3><p>keybr.com</p>
-<h1 id="二、中文"><a href="#二、中文" class="headerlink" title="二、中文"></a>二、中文</h1><h2 id="1-偏盘部首辅助找字"><a href="#1-偏盘部首辅助找字" class="headerlink" title="1. 偏盘部首辅助找字"></a>1. 偏盘部首辅助找字</h2><p>可以在输入拼音后加上Tab键输入偏旁部首。</p>
-<h2 id="2-Ctrl-首字母可以快速定位到该字母前方"><a href="#2-Ctrl-首字母可以快速定位到该字母前方" class="headerlink" title="2. Ctrl+首字母可以快速定位到该字母前方"></a>2. Ctrl+首字母可以快速定位到该字母前方</h2><h2 id="3-启用u模式，通过偏旁部首组成生僻字"><a href="#3-启用u模式，通过偏旁部首组成生僻字" class="headerlink" title="3. 启用u模式，通过偏旁部首组成生僻字"></a>3. 启用u模式，通过偏旁部首组成生僻字</h2><h2 id="4-启用v模式，可以方便数字的使用和计算"><a href="#4-启用v模式，可以方便数字的使用和计算" class="headerlink" title="4. 启用v模式，可以方便数字的使用和计算"></a>4. 启用v模式，可以方便数字的使用和计算</h2><p>如v123可以快速输入繁体</p>
-<h2 id="5-简拼"><a href="#5-简拼" class="headerlink" title="5. 简拼"></a>5. 简拼</h2><p>rq 输入今天的日期</p>
-<p>sq 输入现在星期几</p>
-<p>sj 输入现在时间点</p>
-<h2 id="6-固定首位"><a href="#6-固定首位" class="headerlink" title="6. 固定首位"></a>6. 固定首位</h2><h2 id="7-自定义快捷短语"><a href="#7-自定义快捷短语" class="headerlink" title="7. 自定义快捷短语"></a>7. 自定义快捷短语</h2><p>比如可以让字母输出标点符号</p>
-<h2 id="8-美化输入法皮肤，提升效率"><a href="#8-美化输入法皮肤，提升效率" class="headerlink" title="8. 美化输入法皮肤，提升效率"></a>8. 美化输入法皮肤，提升效率</h2>]]></content>
-  </entry>
-  <entry>
     <title>数学建模比赛的学习记录</title>
     <url>/posts/a87c26aa.html</url>
     <content><![CDATA[<h1 id="写这篇笔记的原因"><a href="#写这篇笔记的原因" class="headerlink" title="写这篇笔记的原因"></a>写这篇笔记的原因</h1><p>一个暑假被我摸鱼混过去了，今天上午老师要求阅读论文，作为leader的我却又摸鱼了一天，最后把讲解题目的任务都给了队友，这让我在看到其他队伍的leader都挑起了重担而我却在苟活，良心受到了巨大的谴责。</p>
@@ -939,6 +790,25 @@ body <span class="token punctuation">&#123;</span>
 <p>通过高级检索搜索，关键词一般设置为模糊，例如搜索“神经网络”，模糊搜索出的结果就会包含“神经”或者“网络”。以便达达到搜索到的更多</p>
 <p><img src="https://img-blog.csdnimg.cn/4221afc9630c4d5f8403b3adb65a1272.png" alt="其它网站"></p>
 <p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20220907173352474.png" alt="image-20220907173352474"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>配置git环境与项目创建</title>
+    <url>/posts/881ff15a.html</url>
+    <content><![CDATA[<h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><p>首先进入终端,输入cd进入家目录。通过ssh-keygen生成密钥，一路回车。</p>
+<p>cd .ssh 进入ssh文件夹，输入ls，可以看到两个文件：公钥和私钥。通过cat + 私钥名称就可以点开。将密钥复制至ssh密钥后传到acgit。</p>
+<p>在电脑上创建个目录后输入命令git init，会生成一个隐藏文件夹 .git,同时在其中创建一个readme文件</p>
+<h2 id="输入常用的git命令-（git-含义）"><a href="#输入常用的git命令-（git-含义）" class="headerlink" title="输入常用的git命令 （git + 含义）"></a>输入常用的git命令 （git + 含义）</h2><p>git status 查看当前文件夹下有多少文件未被收录到仓库</p>
+<p>git add . 将未收录的给收录了</p>
+<p>git commit -m “创建项目（命名）”   为这段有纪念价值的命令取个亲切的名字吧~之后可以通过历史查看，同时也可以在其中浏览文件获取历史版本</p>
+<ul>
+<li><p>git push 上传云端（执行此命令前需要同步）</p>
+</li>
+<li><p>git pull 将另一台电脑的代码给同步下来</p>
+</li>
+</ul>
+<h2 id="同步云端项目"><a href="#同步云端项目" class="headerlink" title="同步云端项目"></a>同步云端项目</h2><p>创建项目–创建空白项目–………–将命令复制粘贴(可以用shift+insert键)（如果有多个项目，两个都要去掉–global）–推送现有文件夹（选第三个和第五个（将main换成master））</p>
+<h2 id="如何将两个电脑代码同步"><a href="#如何将两个电脑代码同步" class="headerlink" title="* 如何将两个电脑代码同步"></a>* 如何将两个电脑代码同步</h2><p>进入项目后点击克隆，复制ssh克隆命令，打开需要克隆的文件夹，输入git命令git clone + 复制</p>
 ]]></content>
   </entry>
   <entry>
@@ -1011,25 +881,6 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver<span aria-hidden="t
 <h2 id="session"><a href="#session" class="headerlink" title="session"></a>session</h2><p><img src="https://img-blog.csdnimg.cn/c245ed2667074805a925da3e1e310abb.png" alt="session"><br>数据库里会存sessionID是谁。<br><img src="https://img-blog.csdnimg.cn/a36799fc192c45518a5fa0cb6bf3bded.png" alt="在这里插入图片描述"><br>如果使用数据库一定要加上Autowired<br><img src="https://img-blog.csdnimg.cn/646d4747e26e4de9b11c05a2bf728987.png" alt="在这里插入图片描述"><br>在密码前加上{noop}让数据库知道并未加密</p>
 <h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p><img src="https://img-blog.csdnimg.cn/288f2b5ca9064214b647e791ecc56420.png" alt="加密"><br>encode 将明文转化为密文<br>matches 判断明文与密文是否匹配<br><img src="https://img-blog.csdnimg.cn/780c23535d7f4f91a5d2942eb1b870e7.png" alt="在这里插入图片描述"><br>我们在test类中进行加密，加密后的密文会出现在这里<br><img src="https://img-blog.csdnimg.cn/9c875952a4104520aabf7453e4d69604.png" alt="密文"></p>
 <p>接下来我们可以通过matches判断是否匹配<img src="https://img-blog.csdnimg.cn/8fb5b98e953d4d85a82bf346bafa8b4f.png" alt="在这里插入图片描述"><br>如果在这里显示true就是匹配，false就是不匹配。<br><img src="https://img-blog.csdnimg.cn/2e5594fa24174480adb94eb09ddda0d1.png" alt="在这里插入图片描述"><br>这个时候，我们再回到登陆页面只能通过密文进行登陆。为了解决这种问题，我们可以将数据库中的password改为对应的密文。<br>之后我们设置自动生成密文<br>……</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>配置git环境与项目创建</title>
-    <url>/posts/881ff15a.html</url>
-    <content><![CDATA[<h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><p>首先进入终端,输入cd进入家目录。通过ssh-keygen生成密钥，一路回车。</p>
-<p>cd .ssh 进入ssh文件夹，输入ls，可以看到两个文件：公钥和私钥。通过cat + 私钥名称就可以点开。将密钥复制至ssh密钥后传到acgit。</p>
-<p>在电脑上创建个目录后输入命令git init，会生成一个隐藏文件夹 .git,同时在其中创建一个readme文件</p>
-<h2 id="输入常用的git命令-（git-含义）"><a href="#输入常用的git命令-（git-含义）" class="headerlink" title="输入常用的git命令 （git + 含义）"></a>输入常用的git命令 （git + 含义）</h2><p>git status 查看当前文件夹下有多少文件未被收录到仓库</p>
-<p>git add . 将未收录的给收录了</p>
-<p>git commit -m “创建项目（命名）”   为这段有纪念价值的命令取个亲切的名字吧~之后可以通过历史查看，同时也可以在其中浏览文件获取历史版本</p>
-<ul>
-<li><p>git push 上传云端（执行此命令前需要同步）</p>
-</li>
-<li><p>git pull 将另一台电脑的代码给同步下来</p>
-</li>
-</ul>
-<h2 id="同步云端项目"><a href="#同步云端项目" class="headerlink" title="同步云端项目"></a>同步云端项目</h2><p>创建项目–创建空白项目–………–将命令复制粘贴(可以用shift+insert键)（如果有多个项目，两个都要去掉–global）–推送现有文件夹（选第三个和第五个（将main换成master））</p>
-<h2 id="如何将两个电脑代码同步"><a href="#如何将两个电脑代码同步" class="headerlink" title="* 如何将两个电脑代码同步"></a>* 如何将两个电脑代码同步</h2><p>进入项目后点击克隆，复制ssh克隆命令，打开需要克隆的文件夹，输入git命令git clone + 复制</p>
 ]]></content>
   </entry>
   <entry>
@@ -1245,5 +1096,154 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver<span aria-hidden="t
       <categories>
         <category>期末作业</category>
       </categories>
+  </entry>
+  <entry>
+    <title>python作业的重做</title>
+    <url>/posts/50ab5143.html</url>
+    <content><![CDATA[<h1 id="1-题目分析与思路描述"><a href="#1-题目分析与思路描述" class="headerlink" title="1 题目分析与思路描述"></a>1 题目分析与思路描述</h1><h2 id="1-1-题目描述"><a href="#1-1-题目描述" class="headerlink" title="1.1 题目描述"></a>1.1 题目描述</h2><p>用字典+列表 实现以下通讯录的增删改查功能:<br><img src="https://img-blog.csdnimg.cn/bc637a5a1836415e96a8e86530b7fad4.png" alt="题目"></p>
+<h2 id="1-2-分析与思路"><a href="#1-2-分析与思路" class="headerlink" title="1.2 分析与思路"></a>1.2 分析与思路</h2><h3 id="1-2-1-增"><a href="#1-2-1-增" class="headerlink" title="1.2.1 增"></a>1.2.1 增</h3><p>首先，我们可以用字典来储存每一位联系人的信息：姓名作为联系人的键，手机号、邮箱、地址作为联系人这个键的值。<br>那么，用什么来储存这些联系人的字典呢？由于元组与集合的元素不能被修改，而本题通讯录中的联系人信息是要实现“增删改查”的，因此最佳的选择当然是使用列表。<br>所以，我们来创建这两个容器:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">list</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+dict1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> dict2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> dict3 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> … <span class="token comment"># 此处省略无数个联系人信息构成的字典，之后我们在完整代码中通过循环来实现。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>容器创建好了，但是里面没有内容啊，怎么能说是通讯录呢？因此，我们需要“增”！实现第一个功能：添加联系人！<br>我们要增加什么呢？<em>当然是联系人以及其对应的信息：</em>第一是新增一个字典并在这个字典里增加联系人的信息，第二是将这个字典增加到列表中。前者使用字典的增加方法<code>update()</code>来新增一个字典并用<code>字典名[键]=值</code>的方式来添加这个新增字典里的条目，后者使用列表的增加方法<code>append()</code>增加字典这个元素。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">name<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的姓名："</span><span class="token punctuation">)</span>
+phone<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的手机号："</span><span class="token punctuation">)</span>
+email<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的邮箱："</span><span class="token punctuation">)</span>
+address<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的地址："</span><span class="token punctuation">)</span>
+
+<span class="token builtin">dict</span><span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"姓名"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span> <span class="token string">"手机号"</span><span class="token punctuation">:</span> phone<span class="token punctuation">,</span> <span class="token string">"电子邮箱"</span><span class="token punctuation">:</span> email<span class="token punctuation">,</span> <span class="token string">",联系地址"</span><span class="token punctuation">:</span> address<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token builtin">list</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">dict</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>于是，我们的通讯录中就有了第一个联系人，通过循环我们可以再生出无数个联系人，正如两千年前的先哲老子所言<code>一生二，二生三，三生万物</code>。</p>
+<h3 id="1-2-2-查"><a href="#1-2-2-查" class="headerlink" title="1.2.2 查"></a>1.2.2 查</h3><p>好的，那么当我们有了很多个联系人的时候，我们应该怎么知道这个通讯录中联系人有哪些以及对应的信息呢？于是我们第二个功能的需求就出来了，那就是“查”！<br>查什么？根据题意，一是用户可以通过遍历查看这个通讯录所有的联系人以及信息（功能2），二是用户可以输入某个联系人的姓名查看其对应的信息。（功能5）<br>先来实现前者（功能2），我们可以用<code>for循环</code>遍历整个通讯录列表里的元素<em>字典</em>再用<code>for循环</code>遍历<code>items()</code>的方法来获取字典中的<em>键和值</em>。</p>
+<pre class="line-numbers language-PYTHON" data-language="PYTHON"><code class="language-PYTHON">for i in list:
+	for k, v in i.items() # k, v分别表示获取联系人的姓名（键）以及联系人的信息
+	print(k + ':' + v)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>再来实现后者（功能5）:这是功能2的简化版，直接如法炮制。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
+	<span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> i<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># k, v分别表示获取联系人的姓名（键）以及联系人的信息</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>k <span class="token operator">+</span> <span class="token string">':'</span> <span class="token operator">+</span> v<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-2-3-删"><a href="#1-2-3-删" class="headerlink" title="1.2.3 删"></a>1.2.3 删</h3><p>在输入联系人的过程中，一定有不小心输错信息的时候或者也会存在有些联系人在创建之后没有再存在通讯录必要的情况，这个时候我们首先想到的是删掉这个联系人及其信息。对应在程序里删除的是通讯录列表里的一个<code>字典</code>元素。<br>我们来一起复习一下，列表删除元素的方式有哪些呢？列举如下：<code>del命令</code>，<code>pop()方法</code>，<code>remove()方法</code>。那么我们应该用哪一个呢？以下给出分析：</p>
+<ol>
+<li><p><code>del 列表名[索引]</code>可以通过正向索引和反向索引的方式删掉对应的列表元素。如果我们需要使用它，就要先用<code>index()</code>方法找到对应的索引号。<img src="https://img-blog.csdnimg.cn/ccfac704c3a94352a218637ad14c6f6a.png" alt="del指令"></p>
+</li>
+<li><p><code>列表名.pop(索引)</code>，如果我们需要使用它，也要先用<code>index()</code>方法找到对应的索引号。<img src="https://img-blog.csdnimg.cn/3ecd3c75ed0242478a7547725b945c34.png" alt="pop()方法"></p>
+</li>
+<li><p><code>列表.remove(元素值)</code>，可以直接通过输入的值删除，较为简单。<img src="https://img-blog.csdnimg.cn/74f1ed4ada8b46cab2db146577232349.png" alt="remove()方法"></p>
+<p>综上所述，我们选用方便使用的<code>remove()</code>方法。<br><img src="https://img-blog.csdnimg.cn/9368de11809a4b0f82a1110a23b9ac6e.png" alt="使用remove()方法删除通讯录的联系人"><br>如上述代码所示，我们可以通过i来遍历通讯录的列表：如果要删除的联系人的姓名是列表中某一个字典的值，那么整个条目就会被移除。</p>
+</li>
+</ol>
+<h3 id="1-2-4-改"><a href="#1-2-4-改" class="headerlink" title="1.2.4 改"></a>1.2.4 改</h3><p>结合上述，如果在输入联系人的过程中，我们不小心输错了联系人的信息 ，可以使用删除这个联系人再重新增加这个联系人的方式实现。但是，这种方式过于繁琐了。<br>因此，我们能不能直接修改呢？以下是本人对字典更新方式的简述：</p>
+<blockquote>
+<p>在字典创建之后通过字典名[键]=值的方法进行更新，如果键在字典中不存在就会执行添加条目操作，如果键存在就会执行修改条目操作。</p>
+</blockquote>
+<p>于是，我们可以用以下的方式来修改字典中的值：<br><img src="https://img-blog.csdnimg.cn/fd912e897ad04afcb233955b92781c31.png" alt="修改通讯录中联系人信息"><br>如同上述的“删”使用的方法一样，我们也是用i来遍历通讯录的列表。随后，找到需要修改的联系人，并逐一给其中的每一个键赋上对应的值作为该联系人的信息。</p>
+<h3 id="1-2-5-注意事项"><a href="#1-2-5-注意事项" class="headerlink" title="1.2.5 注意事项"></a>1.2.5 注意事项</h3><ol>
+<li>新增联系人时需要判断用户输入的信息是否不为空，如果用户输入的字符串为空<code>' '</code>那么需要提醒用户重新输入。</li>
+<li>查询、修改、删除联系人时需要判断原通讯录是不否为空以及该联系人是否在原通讯录中。</li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">-</span> 可以使用`<span class="token builtin">len</span><span class="token punctuation">(</span><span class="token punctuation">)</span>`函数判断通讯录是否为空：如果为该列表长度为<span class="token number">0</span>则表明没有元素，提醒用户该通讯录没有信息。
+<span class="token operator">-</span> 可以使用`<span class="token keyword">in</span>`运算符判断该联系人是否存在于通讯录：用i来遍历通讯录的列表，再使用`values<span class="token punctuation">(</span><span class="token punctuation">)</span>`方法来获取对应的值，判断姓名是否存在。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ol start="3">
+<li>在修改通讯录联系人信息的时候，可以先将该联系人信息打印出来，以方便用户修改。</li>
+<li>如果用户输入了不在功能内的其它字符也需要有对应的提示。 <h1 id="2-完整代码实现"><a href="#2-完整代码实现" class="headerlink" title="2 完整代码实现"></a>2 完整代码实现</h1></li>
+</ol>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">list</span><span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"欢迎使用通讯录："</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"1.添加联系人"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"2.查看通讯录"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"3.删除联系人"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"4.修改联系人信息"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"5.查找联系人"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"6.退出"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token operator">*</span><span class="token number">20</span><span class="token punctuation">)</span>
+    <span class="token builtin">dict</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    fun <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入功能序号："</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> fun <span class="token operator">==</span> <span class="token string">'1'</span><span class="token punctuation">:</span>
+        name <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的姓名："</span><span class="token punctuation">)</span>
+        phone <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的手机号："</span><span class="token punctuation">)</span>
+        email <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的邮箱："</span><span class="token punctuation">)</span>
+        address <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入联系人的地址："</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> name <span class="token operator">==</span> <span class="token string">''</span> <span class="token keyword">or</span> phone <span class="token operator">==</span> <span class="token string">''</span> <span class="token keyword">or</span> email <span class="token operator">==</span> <span class="token string">''</span> <span class="token keyword">or</span> address <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'请输入正确信息'</span><span class="token punctuation">)</span>
+            <span class="token keyword">continue</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token builtin">dict</span><span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"姓名"</span><span class="token punctuation">:</span> name<span class="token punctuation">,</span>
+                         <span class="token string">"手机号"</span><span class="token punctuation">:</span> phone<span class="token punctuation">,</span>
+                         <span class="token string">"电子邮箱"</span><span class="token punctuation">:</span> email<span class="token punctuation">,</span>
+                         <span class="token string">"联系地址"</span><span class="token punctuation">:</span> address<span class="token punctuation">}</span><span class="token punctuation">)</span>
+            <span class="token builtin">list</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">dict</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"保存成功"</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> fun <span class="token operator">==</span> <span class="token string">'2'</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"通讯录没有信息"</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> i<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token string">':'</span><span class="token operator">+</span>v<span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> fun <span class="token operator">==</span> <span class="token string">'3'</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">:</span>
+            name2<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入要删除的联系人姓名："</span><span class="token punctuation">)</span>
+            flag<span class="token operator">=</span><span class="token number">0</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> name2 <span class="token keyword">in</span> i<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token builtin">list</span><span class="token punctuation">.</span>remove<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+                    flag<span class="token operator">=</span><span class="token number">1</span>
+                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"删除成功"</span><span class="token punctuation">)</span>
+                    <span class="token keyword">break</span>
+            <span class="token keyword">if</span> flag<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"该联系人不在通讯录中"</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"通讯录无信息"</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> fun<span class="token operator">==</span><span class="token string">'4'</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">:</span>
+            info2<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入要修改的联系人姓名："</span><span class="token punctuation">)</span>
+            flag<span class="token operator">=</span><span class="token number">0</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> info2 <span class="token keyword">in</span> i<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    flag<span class="token operator">=</span><span class="token number">1</span>
+                    <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> i<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                        <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token string">':'</span><span class="token operator">+</span>v<span class="token punctuation">)</span>
+                    name2 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入新的姓名："</span><span class="token punctuation">)</span>
+                    phone2 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入新的手机号："</span><span class="token punctuation">)</span>
+                    email2 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入新的邮箱："</span><span class="token punctuation">)</span>
+                    address2 <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入新的地址："</span><span class="token punctuation">)</span>
+                    i<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"姓名"</span><span class="token punctuation">:</span> name2<span class="token punctuation">,</span>
+                              <span class="token string">"手机号"</span><span class="token punctuation">:</span> phone2<span class="token punctuation">,</span>
+                              <span class="token string">"电子邮箱"</span><span class="token punctuation">:</span> email2<span class="token punctuation">,</span>
+                              <span class="token string">"联系地址"</span><span class="token punctuation">:</span> address2<span class="token punctuation">}</span><span class="token punctuation">)</span>
+                    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span>
+                    <span class="token keyword">break</span>
+            <span class="token keyword">if</span> flag<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"该联系人不在通讯录中"</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"通讯录无信息"</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> fun<span class="token operator">==</span><span class="token string">'5'</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">:</span>
+            name3<span class="token operator">=</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"请输入要查找的联系人姓名："</span><span class="token punctuation">)</span>
+            flag<span class="token operator">=</span><span class="token number">0</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> name3 <span class="token keyword">in</span> i<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    flag<span class="token operator">=</span><span class="token number">1</span>
+                    <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> i<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                        <span class="token keyword">print</span><span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token string">':'</span><span class="token operator">+</span>v<span class="token punctuation">)</span>
+                    <span class="token keyword">break</span>
+            <span class="token keyword">if</span> flag<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"该联系人不在通讯录中"</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"通讯录无信息"</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> fun<span class="token operator">==</span><span class="token string">'6'</span><span class="token punctuation">:</span>
+        <span class="token keyword">break</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"您输入的功能不存在，请输入正确的功能序号"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h1 id="3-总结与复盘"><a href="#3-总结与复盘" class="headerlink" title="3 总结与复盘"></a>3 总结与复盘</h1><p>首先，在写程序的时候应该首先思考的是该题大致应该如何解决。实现了主要功能之后再去考虑在使用可能出现的问题与情况，或者在代码运行的过程中通过报错进行修改与调试。</p>
+<blockquote>
+<p>未完，10月29日必更完</p>
+</blockquote>
+]]></content>
   </entry>
 </search>
