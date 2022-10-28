@@ -3,11 +3,11 @@
   <title>刘宇的个人网站</title>
   
   <subtitle>刘宇的小窝</subtitle>
-  <link href="https://nliuyu.github.io/atom.xml" rel="self"/>
+  <link href="https://liuyu.biz/atom.xml" rel="self"/>
   
-  <link href="https://nliuyu.github.io/"/>
+  <link href="https://liuyu.biz/"/>
   <updated>2022-10-27T14:40:25.711Z</updated>
-  <id>https://nliuyu.github.io/</id>
+  <id>https://liuyu.biz/</id>
   
   <author>
     <name>刘宇</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>字典与集合的总结（持续更新中）</title>
-    <link href="https://nliuyu.github.io/posts/5d43f4f8.html"/>
-    <id>https://nliuyu.github.io/posts/5d43f4f8.html</id>
+    <link href="https://liuyu.biz/posts/5d43f4f8.html"/>
+    <id>https://liuyu.biz/posts/5d43f4f8.html</id>
     <published>2022-10-27T13:31:39.000Z</published>
     <updated>2022-10-27T14:40:25.711Z</updated>
     
@@ -39,8 +39,8 @@
   
   <entry>
     <title>MyBatis框架的学习（更新中）</title>
-    <link href="https://nliuyu.github.io/posts/702709a0.html"/>
-    <id>https://nliuyu.github.io/posts/702709a0.html</id>
+    <link href="https://liuyu.biz/posts/702709a0.html"/>
+    <id>https://liuyu.biz/posts/702709a0.html</id>
     <published>2022-10-25T12:12:19.000Z</published>
     <updated>2022-10-27T14:40:25.706Z</updated>
     
@@ -62,8 +62,8 @@
   
   <entry>
     <title>js基础语法学习</title>
-    <link href="https://nliuyu.github.io/posts/e0deaa88.html"/>
-    <id>https://nliuyu.github.io/posts/e0deaa88.html</id>
+    <link href="https://liuyu.biz/posts/e0deaa88.html"/>
+    <id>https://liuyu.biz/posts/e0deaa88.html</id>
     <published>2022-09-20T12:59:23.000Z</published>
     <updated>2022-10-27T14:40:25.708Z</updated>
     
@@ -82,8 +82,8 @@
   
   <entry>
     <title>数学建模比赛的学习记录</title>
-    <link href="https://nliuyu.github.io/posts/a87c26aa.html"/>
-    <id>https://nliuyu.github.io/posts/a87c26aa.html</id>
+    <link href="https://liuyu.biz/posts/a87c26aa.html"/>
+    <id>https://liuyu.biz/posts/a87c26aa.html</id>
     <published>2022-09-07T08:23:58.000Z</published>
     <updated>2022-10-27T14:40:25.712Z</updated>
     
@@ -102,8 +102,8 @@
   
   <entry>
     <title>开启Djiago课程的学习</title>
-    <link href="https://nliuyu.github.io/posts/359fc57.html"/>
-    <id>https://nliuyu.github.io/posts/359fc57.html</id>
+    <link href="https://liuyu.biz/posts/359fc57.html"/>
+    <id>https://liuyu.biz/posts/359fc57.html</id>
     <published>2022-08-04T14:28:55.000Z</published>
     <updated>2022-08-08T18:34:05.952Z</updated>
     
@@ -122,8 +122,8 @@
   
   <entry>
     <title>提升打字速度小技巧</title>
-    <link href="https://nliuyu.github.io/posts/f8192249.html"/>
-    <id>https://nliuyu.github.io/posts/f8192249.html</id>
+    <link href="https://liuyu.biz/posts/f8192249.html"/>
+    <id>https://liuyu.biz/posts/f8192249.html</id>
     <published>2022-07-30T06:40:02.000Z</published>
     <updated>2022-07-30T08:36:51.441Z</updated>
     
@@ -142,8 +142,8 @@
   
   <entry>
     <title>配置Mysql与注册登录模块</title>
-    <link href="https://nliuyu.github.io/posts/94f24848.html"/>
-    <id>https://nliuyu.github.io/posts/94f24848.html</id>
+    <link href="https://liuyu.biz/posts/94f24848.html"/>
+    <id>https://liuyu.biz/posts/94f24848.html</id>
     <published>2022-07-29T09:10:43.000Z</published>
     <updated>2022-08-08T18:33:11.893Z</updated>
     
@@ -162,8 +162,8 @@
   
   <entry>
     <title>开启游戏平台</title>
-    <link href="https://nliuyu.github.io/posts/8ae62c4e.html"/>
-    <id>https://nliuyu.github.io/posts/8ae62c4e.html</id>
+    <link href="https://liuyu.biz/posts/8ae62c4e.html"/>
+    <id>https://liuyu.biz/posts/8ae62c4e.html</id>
     <published>2022-07-15T10:13:21.000Z</published>
     <updated>2022-07-30T08:36:51.442Z</updated>
     
@@ -184,8 +184,8 @@
   
   <entry>
     <title>markdown常用语法</title>
-    <link href="https://nliuyu.github.io/posts/dc49ce92.html"/>
-    <id>https://nliuyu.github.io/posts/dc49ce92.html</id>
+    <link href="https://liuyu.biz/posts/dc49ce92.html"/>
+    <id>https://liuyu.biz/posts/dc49ce92.html</id>
     <published>2022-07-15T10:08:24.000Z</published>
     <updated>2022-07-30T08:36:51.440Z</updated>
     
@@ -204,8 +204,8 @@
   
   <entry>
     <title>配置git环境与项目创建</title>
-    <link href="https://nliuyu.github.io/posts/881ff15a.html"/>
-    <id>https://nliuyu.github.io/posts/881ff15a.html</id>
+    <link href="https://liuyu.biz/posts/881ff15a.html"/>
+    <id>https://liuyu.biz/posts/881ff15a.html</id>
     <published>2022-07-13T16:08:25.000Z</published>
     <updated>2022-07-30T08:36:51.444Z</updated>
     
@@ -225,8 +225,8 @@
   
   <entry>
     <title>开启SpringBoot的入门学习</title>
-    <link href="https://nliuyu.github.io/posts/33b430d3.html"/>
-    <id>https://nliuyu.github.io/posts/33b430d3.html</id>
+    <link href="https://liuyu.biz/posts/33b430d3.html"/>
+    <id>https://liuyu.biz/posts/33b430d3.html</id>
     <published>2022-06-17T13:29:03.000Z</published>
     <updated>2022-06-17T15:09:40.075Z</updated>
     
@@ -237,17 +237,17 @@
     
     
     
-    <category term="个人学习" scheme="https://nliuyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0/"/>
+    <category term="个人学习" scheme="https://liuyu.biz/categories/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="SpringBoot" scheme="https://nliuyu.github.io/tags/SpringBoot/"/>
+    <category term="SpringBoot" scheme="https://liuyu.biz/tags/SpringBoot/"/>
     
   </entry>
   
   <entry>
     <title>开启VUE的学习记录</title>
-    <link href="https://nliuyu.github.io/posts/708b490e.html"/>
-    <id>https://nliuyu.github.io/posts/708b490e.html</id>
+    <link href="https://liuyu.biz/posts/708b490e.html"/>
+    <id>https://liuyu.biz/posts/708b490e.html</id>
     <published>2022-06-17T13:28:32.000Z</published>
     <updated>2022-06-17T15:09:40.075Z</updated>
     
@@ -258,17 +258,17 @@
     
     
     
-    <category term="个人学习" scheme="https://nliuyu.github.io/categories/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0/"/>
+    <category term="个人学习" scheme="https://liuyu.biz/categories/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="VUE" scheme="https://nliuyu.github.io/tags/VUE/"/>
+    <category term="VUE" scheme="https://liuyu.biz/tags/VUE/"/>
     
   </entry>
   
   <entry>
     <title>针对JAVA期末课设的学习记录</title>
-    <link href="https://nliuyu.github.io/posts/a425977c.html"/>
-    <id>https://nliuyu.github.io/posts/a425977c.html</id>
+    <link href="https://liuyu.biz/posts/a425977c.html"/>
+    <id>https://liuyu.biz/posts/a425977c.html</id>
     <published>2022-06-14T18:57:32.000Z</published>
     <updated>2022-06-20T07:16:35.330Z</updated>
     
@@ -283,15 +283,15 @@
     
     
     
-    <category term="期末作业" scheme="https://nliuyu.github.io/categories/%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/"/>
+    <category term="期末作业" scheme="https://liuyu.biz/categories/%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/"/>
     
     
   </entry>
   
   <entry>
     <title>STL的个人总结</title>
-    <link href="https://nliuyu.github.io/posts/d87f7e0c.html"/>
-    <id>https://nliuyu.github.io/posts/d87f7e0c.html</id>
+    <link href="https://liuyu.biz/posts/d87f7e0c.html"/>
+    <id>https://liuyu.biz/posts/d87f7e0c.html</id>
     <published>2022-01-16T15:01:40.000Z</published>
     <updated>2022-06-14T19:26:27.252Z</updated>
     
