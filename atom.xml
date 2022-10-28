@@ -6,7 +6,7 @@
   <link href="https://liuyu.biz/atom.xml" rel="self"/>
   
   <link href="https://liuyu.biz/"/>
-  <updated>2022-10-28T14:52:30.031Z</updated>
+  <updated>2022-10-28T16:02:52.969Z</updated>
   <id>https://liuyu.biz/</id>
   
   <author>
@@ -21,15 +21,14 @@
     <link href="https://liuyu.biz/posts/50ab5143.html"/>
     <id>https://liuyu.biz/posts/50ab5143.html</id>
     <published>2022-10-28T14:49:55.000Z</published>
-    <updated>2022-10-28T14:52:30.031Z</updated>
+    <updated>2022-10-28T16:02:52.969Z</updated>
     
-    <content type="html"><![CDATA[<p>​    还在重做中，10月29日零点前上传</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="1-题目分析与思路描述"><a href="#1-题目分析与思路描述" class="headerlink" title="1. 题目分析与思路描述"></a>1. 题目分析与思路描述</h1><h2 id="1-1-题目描述"><a href="#1-1-题目描述" class="headerlink" title="1.1 题目描述"></a>1.1 题目描述</h2><p>用字典+列表 实现以下通讯录的增删改查功能:<br><img src="https://img-blog.csdnimg.cn/bc637a5a1836415e96a8e86530b7fad4.png" alt="题目"></p><h2 id="1-2-分析与思路"><a href="#1-2-分析与思路" class="headerlink" title="1.2 分析与思路"></a>1.2 分析与思路</h2><p>首先，我们可以用字典来储存每一位联系人的信息：姓名作为联系人的键，手机号、邮箱、地址作为联系人这个键的值。<br>那么，用什么来储存这些联系人的字典呢？由于元组与集合的元素不能被修改，而本题通讯录中的联系人信息是要实现“增删改查”的，因此最佳的选择当然是使用列表。<br>因此我们来创建这两个容器:</p><pre class="line-numbers language-none"><code class="language-none">list = {}dict1 = {}, dict2 = {}, dict3 = {}, … # 此处省略无数个联系人信息构成的字典，之后我们在代码中通过循环来实现。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>容器创建好了，但是里面没有内容啊，怎么能说是通讯录呢？因此，我们需要“增”！实现第一个功能：添加联系人！<br>我们要增加什么呢？<em>当然是联系人以及其对应的信息：</em>第一是新增一个字典并在这个字典里增加联系人的信息，第二是将这个字典增加到列表中。前者使用字典的增加方法``，后者使用列表的增加方法<code>append()</code></p><blockquote><p>还在更新中,大约一点前更完</p></blockquote><h1 id="2-完整代码实现"><a href="#2-完整代码实现" class="headerlink" title="2. 完整代码实现"></a>2. 完整代码实现</h1><h1 id="3-总结与复盘"><a href="#3-总结与复盘" class="headerlink" title="3. 总结与复盘"></a>3. 总结与复盘</h1>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;​    还在重做中，10月29日零点前上传&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;h1 id=&quot;1-题目分析与思路描述&quot;&gt;&lt;a href=&quot;#1-题目分析与思路描述&quot; class=&quot;headerlink&quot; title=&quot;1. 题目分析与思路描述&quot;&gt;&lt;/a&gt;1. 题目分析与思路描述&lt;/h1&gt;&lt;h2 id=&quot;1-1-题目描述&quot;&gt;&lt;a href=&quot;#1-1-题目描</summary>
       
     
     
