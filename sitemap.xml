@@ -4,7 +4,14 @@
   <url>
     <loc>https://liuyu.biz/posts/50ab5143.html</loc>
     
-    <lastmod>2022-10-28</lastmod>
+    <lastmod>2022-10-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liuyu.biz/posts/b92f1b1f.html</loc>
+    
+    <lastmod>2022-10-29</lastmod>
     
   </url>
   
@@ -193,22 +200,22 @@
 
   <url>
     <loc>https://liuyu.biz/</loc>
-    <lastmod>2022-10-28</lastmod>
+    <lastmod>2022-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://liuyu.biz/tags/SpringBoot/</loc>
-    <lastmod>2022-10-28</lastmod>
+    <loc>https://liuyu.biz/tags/VUE/</loc>
+    <lastmod>2022-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://liuyu.biz/tags/VUE/</loc>
-    <lastmod>2022-10-28</lastmod>
+    <loc>https://liuyu.biz/tags/SpringBoot/</loc>
+    <lastmod>2022-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -217,14 +224,14 @@
   
   <url>
     <loc>https://liuyu.biz/categories/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-10-28</lastmod>
+    <lastmod>2022-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://liuyu.biz/categories/%E6%9C%9F%E6%9C%AB%E4%BD%9C%E4%B8%9A/</loc>
-    <lastmod>2022-10-28</lastmod>
+    <lastmod>2022-10-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
