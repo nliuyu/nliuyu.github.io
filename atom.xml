@@ -6,7 +6,7 @@
   <link href="https://liuyu.biz/atom.xml" rel="self"/>
   
   <link href="https://liuyu.biz/"/>
-  <updated>2022-10-29T20:31:58.141Z</updated>
+  <updated>2022-10-29T20:35:31.101Z</updated>
   <id>https://liuyu.biz/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://liuyu.biz/posts/b92f1b1f.html"/>
     <id>https://liuyu.biz/posts/b92f1b1f.html</id>
     <published>2022-10-29T20:09:00.000Z</published>
-    <updated>2022-10-29T20:31:58.141Z</updated>
+    <updated>2022-10-29T20:35:31.101Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="1-week1"><a href="#1-week1" class="headerlink" title="1 week1"></a>1 week1</h1><p><img src="https://img-blog.csdnimg.cn/00d2a13d32b741e48f7b18bb27a691e7.png" alt="week1完成情况"></p><p>不知不觉一个星期过去了，通过<code>week1</code>的习题让我重新拾起了数据结构中<code>链表</code>以及<code>二叉树</code>的知识，以下就此展开记录，也方便未来的自己复习相关知识!</p><h2 id="1-1-找出数组中重复的数字"><a href="#1-1-找出数组中重复的数字" class="headerlink" title="1.1 找出数组中重复的数字"></a>1.1 找出数组中重复的数字</h2><h3 id="1-1-1-问题描述"><a href="#1-1-1-问题描述" class="headerlink" title="1.1.1 问题描述"></a>1.1.1 问题描述</h3><p><img src="https://img-blog.csdnimg.cn/195c197d32f2446188126e80497ccd19.png" alt="找出数组中重复的数字"></p><h3 id="1-1-2-代码实现"><a href="#1-1-2-代码实现" class="headerlink" title="1.1.2 代码实现"></a>1.1.2 代码实现</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution {public:    int duplicateInArray(vector&lt;int&gt;&amp; nums) {        int n = nums.size();              for (auto x : nums)            if (x &lt; 0 || x &gt;= n)                return -1;        for (int i = 0; i &lt; n; i ++ ) {                       while (nums[nums[i]] != nums[i]) swap(nums[i], nums[nums[i]]);                        if (nums[i] != i) return nums[i];        }        return -1;    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+    <content type="html"><![CDATA[<h1 id="1-week1"><a href="#1-week1" class="headerlink" title="1 week1"></a>1 week1</h1><p><img src="https://img-blog.csdnimg.cn/00d2a13d32b741e48f7b18bb27a691e7.png" alt="week1完成情况"></p><p>不知不觉一个星期过去了，通过<code>week1</code>的习题让我重新拾起了数据结构中<code>链表</code>以及<code>二叉树</code>的知识，以下就此展开记录，也方便未来的自己复习相关知识!</p><h2 id="1-1-找出数组中重复的数字"><a href="#1-1-找出数组中重复的数字" class="headerlink" title="1.1 找出数组中重复的数字"></a>1.1 找出数组中重复的数字</h2><h3 id="1-1-1-问题描述"><a href="#1-1-1-问题描述" class="headerlink" title="1.1.1 问题描述"></a>1.1.1 问题描述</h3><p><img src="https://img-blog.csdnimg.cn/195c197d32f2446188126e80497ccd19.png" alt="找出数组中重复的数字"></p><h3 id="1-1-2-代码实现"><a href="#1-1-2-代码实现" class="headerlink" title="1.1.2 代码实现"></a>1.1.2 代码实现</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution {public:    int duplicateInArray(vector&lt;int&gt;&amp; nums) {        int n = nums.size();              for (auto x : nums)            if (x &lt; 0 || x &gt;= n)                return -1;        for (int i = 0; i &lt; n; i ++ ) {                       while (nums[nums[i]] != nums[i]) swap(nums[i], nums[nums[i]]);                        if (nums[i] != i) return nums[i];        }        return -1;    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p>待更新，10月31日前更新完成</p></blockquote>]]></content>
     
     
       
