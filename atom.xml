@@ -6,7 +6,7 @@
   <link href="https://liuyu.biz/atom.xml" rel="self"/>
   
   <link href="https://liuyu.biz/"/>
-  <updated>2022-10-29T20:35:31.101Z</updated>
+  <updated>2022-10-30T12:57:52.725Z</updated>
   <id>https://liuyu.biz/</id>
   
   <author>
@@ -17,18 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>万圣节总结python中的语法糖</title>
+    <link href="https://liuyu.biz/posts/8615a179.html"/>
+    <id>https://liuyu.biz/posts/8615a179.html</id>
+    <published>2022-10-30T09:25:56.000Z</published>
+    <updated>2022-10-30T12:57:52.725Z</updated>
+    
+    <content type="html"><![CDATA[<p>python中的语法糖并不是糖果，而是指在python语法中有一些特殊写法可以简化我们的代码。</p><p>在python的语法中有哪些语法糖呢？以下给出常用的几个语法糖总结：</p><h1 id="1-交换变量"><a href="#1-交换变量" class="headerlink" title="1. 交换变量"></a>1. 交换变量</h1><p>当我们要交换下方a，b的值时需要怎么做呢？</p><pre class="line-numbers language-none"><code class="language-none">a = 1b = 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>一般中规中矩的写法都是需要定义第三个变量c，做法如下：</p><pre class="line-numbers language-none"><code class="language-none">c = aa = bb = c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>但是在python中只需要一句话：</p><pre class="line-numbers language-none"><code class="language-none">a, b = b, a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h1 id="2-判断变量"><a href="#2-判断变量" class="headerlink" title="2. 判断变量"></a>2. 判断变量</h1><p>判断变量是否在某个范围内，例如<code>a = 67</code>，如何通过程序判断它是否在60与80之间呢？</p><p>一般的写法是：</p><pre class="line-numbers language-none"><code class="language-none">if a &gt;= 60 and a &lt;= 80<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>在python中也可以将其简化：</p><pre class="line-numbers language-none"><code class="language-none">if 60 &lt;= a &lt;= 80<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h1 id="3-快速构造字符串"><a href="#3-快速构造字符串" class="headerlink" title="3. 快速构造字符串"></a>3. 快速构造字符串</h1><p>字符串的乘法可以帮助我们快速构造字符串。</p><p>如当我们需要通过60个“-”组成下划线时，就不必手敲60次，可以直接通过乘法帮助我们完成：</p><pre class="line-numbers language-none"><code class="language-none">print('-' * 60)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>同理，如果想要组成30个“*”就写成：</p><pre class="line-numbers language-none"><code class="language-none">'@' * 30<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>以后当我们需要快速构造多个相同字符时就可以优先想到使用<code>字符串的乘法</code>来完成！</p><h1 id="4-列表拼接"><a href="#4-列表拼接" class="headerlink" title="4. 列表拼接"></a>4. 列表拼接</h1><pre class="line-numbers language-none"><code class="language-none">a = [1, 2, 3]b = [4, 5, 6]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>如何实现将a，b两个列表拼接在一起呢？</p><p>我们当然可以利用<code>for循环</code>一个一个添加，但是Python为我们提供了一个通过加法拼接字符串的语法糖。</p><pre class="line-numbers language-none"><code class="language-none">a + b <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h1 id="5-列表切片"><a href="#5-列表切片" class="headerlink" title="5. 列表切片"></a>5. 列表切片</h1><pre class="line-numbers language-none"><code class="language-none">a = [1, 2, 3, 4, 5]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>如何取出a正数第二个与倒数第三个元素之间的数字组成新列表呢？</p><p>可以写成这样：</p><pre class="line-numbers language-none"><code class="language-none">a[2 : -2]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>如果是取前三个数呢？</p><pre class="line-numbers language-none"><code class="language-none">a[3:]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>取后三个数同理：</p><pre class="line-numbers language-none"><code class="language-none">a[:-3]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h1 id="6-打包与解包"><a href="#6-打包与解包" class="headerlink" title="6. 打包与解包"></a>6. 打包与解包</h1><p>通过元祖可以帮助我们表示三维空间的坐标，例如:</p><pre class="line-numbers language-none"><code class="language-none">a = (1, 2, 3)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>如果希望获得每个坐标的分量，传统的做法是：</p><pre class="line-numbers language-none"><code class="language-none">x = a[0]y = a[1]z = a[2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>但是在python中可以这样一句搞定（<em>解包</em>）：</p><pre class="line-numbers language-none"><code class="language-none">x, y, z = a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>python会将a解包，然后按照顺序**<em>分别赋值**</em>给x, y, z。</p><p>反过来，如果要将x, y, z的值打包成一个元祖b，同理：</p><pre class="line-numbers language-none"><code class="language-none">b = (x, y, z)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h1 id="7-列表推导式"><a href="#7-列表推导式" class="headerlink" title="7. 列表推导式"></a>7. 列表推导式</h1><pre class="line-numbers language-none"><code class="language-none">a = [1, 2, 3]b = []<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>如果需要将a中的每一个数都加上100之后组成新的列表b，在python中可以这样操作：</p><pre class="line-numbers language-none"><code class="language-none">b = [ i + 100   for i in a]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>不仅限于列表，字典集合同样适用。</p><h1 id="8-with语句"><a href="#8-with语句" class="headerlink" title="8. with语句"></a>8. with语句</h1><p>在<code>文件</code>中，可以通过<code>with</code>语句防止我们忘记写<code>关闭文件</code>后产生的麻烦。</p><pre class="line-numbers language-none"><code class="language-none">with open('test.txt', 'r') as f:data = f.read()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;python中的语法糖并不是糖果，而是指在python语法中有一些特殊写法可以简化我们的代码。&lt;/p&gt;
+&lt;p&gt;在python的语法中有哪些语法糖呢？以下给出常用的几个语法糖总结：&lt;/p&gt;
+&lt;h1 id=&quot;1-交换变量&quot;&gt;&lt;a href=&quot;#1-交换变量&quot; class=&quot;he</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>剑指Offer的刷题</title>
     <link href="https://liuyu.biz/posts/b92f1b1f.html"/>
     <id>https://liuyu.biz/posts/b92f1b1f.html</id>
     <published>2022-10-29T20:09:00.000Z</published>
-    <updated>2022-10-29T20:35:31.101Z</updated>
+    <updated>2022-10-30T04:46:57.300Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="1-week1"><a href="#1-week1" class="headerlink" title="1 week1"></a>1 week1</h1><p><img src="https://img-blog.csdnimg.cn/00d2a13d32b741e48f7b18bb27a691e7.png" alt="week1完成情况"></p><p>不知不觉一个星期过去了，通过<code>week1</code>的习题让我重新拾起了数据结构中<code>链表</code>以及<code>二叉树</code>的知识，以下就此展开记录，也方便未来的自己复习相关知识!</p><h2 id="1-1-找出数组中重复的数字"><a href="#1-1-找出数组中重复的数字" class="headerlink" title="1.1 找出数组中重复的数字"></a>1.1 找出数组中重复的数字</h2><h3 id="1-1-1-问题描述"><a href="#1-1-1-问题描述" class="headerlink" title="1.1.1 问题描述"></a>1.1.1 问题描述</h3><p><img src="https://img-blog.csdnimg.cn/195c197d32f2446188126e80497ccd19.png" alt="找出数组中重复的数字"></p><h3 id="1-1-2-代码实现"><a href="#1-1-2-代码实现" class="headerlink" title="1.1.2 代码实现"></a>1.1.2 代码实现</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution {public:    int duplicateInArray(vector&lt;int&gt;&amp; nums) {        int n = nums.size();              for (auto x : nums)            if (x &lt; 0 || x &gt;= n)                return -1;        for (int i = 0; i &lt; n; i ++ ) {                       while (nums[nums[i]] != nums[i]) swap(nums[i], nums[nums[i]]);                        if (nums[i] != i) return nums[i];        }        return -1;    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p>待更新，10月31日前更新完成</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h1 id="1-week1"><a href="#1-week1" class="headerlink" title="1 week1"></a>1 <font color="blue">week1</font></h1><p><img src="https://img-blog.csdnimg.cn/00d2a13d32b741e48f7b18bb27a691e7.png" alt="week1完成情况"></p><p>不知不觉一个星期过去了，通过<code>week1</code>的习题让我重新拾起了数据结构中<code>链表</code>以及<code>二叉树</code>的知识，以下就此展开记录，也方便未来的自己复习相关知识!</p><h2 id="1-1-找出数组中重复的数字"><a href="#1-1-找出数组中重复的数字" class="headerlink" title="1.1 找出数组中重复的数字"></a>1.1 找出数组中重复的数字</h2><h3 id="1-1-1-问题描述"><a href="#1-1-1-问题描述" class="headerlink" title="1.1.1 问题描述"></a>1.1.1 问题描述</h3><p><img src="https://img-blog.csdnimg.cn/195c197d32f2446188126e80497ccd19.png" alt="找出数组中重复的数字"></p><h3 id="1-1-2-代码实现"><a href="#1-1-2-代码实现" class="headerlink" title="1.1.2 代码实现"></a>1.1.2 代码实现</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">class Solution {public:    int duplicateInArray(vector&lt;int&gt;&amp; nums) {        int n = nums.size();              for (auto x : nums)            if (x &lt; 0 || x &gt;= n)                return -1;        for (int i = 0; i &lt; n; i ++ ) {                       while (nums[nums[i]] != nums[i]) swap(nums[i], nums[nums[i]]);                        if (nums[i] != i) return nums[i];        }        return -1;    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><blockquote><p>待更新，10月31日前更新完成</p></blockquote>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;1-week1&quot;&gt;&lt;a href=&quot;#1-week1&quot; class=&quot;headerlink&quot; title=&quot;1 week1&quot;&gt;&lt;/a&gt;1 week1&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/00d2a13d32b7</summary>
+    <summary type="html">&lt;h1 id=&quot;1-week1&quot;&gt;&lt;a href=&quot;#1-week1&quot; class=&quot;headerlink&quot; title=&quot;1 week1&quot;&gt;&lt;/a&gt;1 &lt;font color=&quot;blue&quot;&gt;week1&lt;/font&gt;&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://img-bl</summary>
       
     
     
