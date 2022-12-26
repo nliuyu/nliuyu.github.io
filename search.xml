@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title></title>
-      <link href="/posts/0.html"/>
-      <url>/posts/0.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><h2 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h2><blockquote><p>与本文相关的研究，当前核酸检测的方式有哪些不足?</p></blockquote><p>也就是说目前疫情依旧存在看病难的问题或者是说社会上</p><blockquote><p>新疆事件</p></blockquote><p>新疆是不能做核酸吗？并不是，那为什么会封闭那么久。</p><blockquote><p>河南事件</p></blockquote><blockquote><p>现在的研究研究出了什么呢？</p></blockquote><p>参看毕业论文</p><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><blockquote><p>目的</p></blockquote><blockquote><p>方法</p></blockquote><blockquote><p>结果</p></blockquote><p>APP+系统</p><blockquote><p>结论</p></blockquote><p>对具有应用价值和借鉴意义</p><p>关键词：新冠肺炎( COVID－19) ;</p><p>Springboot作为后端技术,MySQL数据库作为数据的持久化</p><p>该项目基于springboot框架实现了疫情背景下的校园管理，主要涵盖了中国疫情确诊分布地图(对接腾讯API接口)、中国实时疫情新闻播报、以及对疫情数据的饼图、折线图和柱状图展示。系统角色可以进行增删改查，为角色分配菜单权限，大致分为学生、教师、院系级系统管理员，集成了shiro框架实现了不同的角色可以赋予不同的菜单栏权限，可以完成菜单栏的动态增删改查，实现了动态的权限设置。  在校园疫情数据管理中，基于mybatiplus框架实现了疫情数据的带有条件查询及分页的增删改查，并实现了拖拽式上传excel数据和导出疫情数据。其中相关功能主要包含疫情数据管理，疫情新闻管理，疫情风险地区查询，近30日疫情新增趋势等等，疫情图表展示管理，学生健康打卡管理，院系管理、班级管理、核酸检测管理，疫苗接种管理，学生请假管理等等。系统管理中主要包含了用户管理、角色管理和菜单管理。  在数据库设计中，主要设计了用户与角色之间的多对多实体关系，角色与菜单之间的多对多关系设计。其中，学生请假功能设计了详细的审批流，学生提交审批流后，教师审批后方为院系审批，为串行审批流程，设计了审批节点的状态与审批流的审批逻辑。  在缓存设计中，主要将访问量较高的中国疫情地图和新闻播报首页进行了redis数据缓存，为了保证redis缓存与mysql数据的一致性，每当定时任务触发去解析腾讯API接口数据时候，每更新一次数据库数据，就要删除一次redis缓存，这样就可以保证客户端每次查询数据查不到就可以进行访问数据库更新最新的缓存数据。  在接口设计中，采用了RestFul风格的架构，使请求路径变得更加简洁，传递、获取参数值更加方便，通过请求路径中直接传递参数值，不会暴露传递给方法的参数变量名，接口也变得更加安全。</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>vue学习</title>
       <link href="/posts/b38a0bed.html"/>
       <url>/posts/b38a0bed.html</url>
