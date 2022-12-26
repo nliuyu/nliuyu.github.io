@@ -38,26 +38,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://liuyu.biz/posts/0.html"/>
-    <id>https://liuyu.biz/posts/0.html</id>
-    <published>2022-11-28T02:48:54.503Z</published>
-    <updated>2022-12-09T13:46:44.427Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="OSPF的配置"><a href="#OSPF的配置" class="headerlink" title="OSPF的配置"></a>OSPF的配置</h1><p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20221128113204612.png" alt="image-20221128113204612"></p><p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20221128103035956.png" alt="image-20221128103035956"></p><p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20221128103512669.png" alt="image-20221128103512669"></p><p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20221128103532804.png" alt="image-20221128103532804"></p><p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20221128110011420.png" alt="image-20221128110011420"></p><p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20221128111607315.png" alt="image-20221128111607315"></p><p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20221128111655534.png" alt="image-20221128111655534"></p><p><img src="C:\Users\75300\AppData\Roaming\Typora\typora-user-images\image-20221128113138946.png" alt="image-20221128113138946"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;OSPF的配置&quot;&gt;&lt;a href=&quot;#OSPF的配置&quot; class=&quot;headerlink&quot; title=&quot;OSPF的配置&quot;&gt;&lt;/a&gt;OSPF的配置&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;C:\Users\75300\AppData\Roaming\Typora\ty</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>阅读学习</title>
     <link href="https://liuyu.biz/posts/f6e4b961.html"/>
     <id>https://liuyu.biz/posts/f6e4b961.html</id>
@@ -424,6 +404,27 @@
       
       
     <summary type="html">&lt;h1 id=&quot;Markdown基本语法&quot;&gt;&lt;a href=&quot;#Markdown基本语法&quot; class=&quot;headerlink&quot; title=&quot;Markdown基本语法&quot;&gt;&lt;/a&gt;Markdown基本语法&lt;/h1&gt;&lt;h2 id=&quot;1-标题&quot;&gt;&lt;a href=&quot;#1-标题&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>配置git环境与项目创建</title>
+    <link href="https://liuyu.biz/posts/881ff15a.html"/>
+    <id>https://liuyu.biz/posts/881ff15a.html</id>
+    <published>2022-07-13T16:08:25.000Z</published>
+    <updated>2022-07-30T08:36:51.444Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><p>首先进入终端,输入cd进入家目录。通过ssh-keygen生成密钥，一路回车。</p><p>cd .ssh 进入ssh文件夹，输入ls，可以看到两个文件：公钥和私钥。通过cat + 私钥名称就可以点开。将密钥复制至ssh密钥后传到acgit。</p><p>在电脑上创建个目录后输入命令git init，会生成一个隐藏文件夹 .git,同时在其中创建一个readme文件</p><h2 id="输入常用的git命令-（git-含义）"><a href="#输入常用的git命令-（git-含义）" class="headerlink" title="输入常用的git命令 （git + 含义）"></a>输入常用的git命令 （git + 含义）</h2><p>git status 查看当前文件夹下有多少文件未被收录到仓库</p><p>git add . 将未收录的给收录了</p><p>git commit -m “创建项目（命名）”   为这段有纪念价值的命令取个亲切的名字吧~之后可以通过历史查看，同时也可以在其中浏览文件获取历史版本</p><ul><li><p>git push 上传云端（执行此命令前需要同步）</p></li><li><p>git pull 将另一台电脑的代码给同步下来</p></li></ul><h2 id="同步云端项目"><a href="#同步云端项目" class="headerlink" title="同步云端项目"></a>同步云端项目</h2><p>创建项目–创建空白项目–………–将命令复制粘贴(可以用shift+insert键)（如果有多个项目，两个都要去掉–global）–推送现有文件夹（选第三个和第五个（将main换成master））</p><h2 id="如何将两个电脑代码同步"><a href="#如何将两个电脑代码同步" class="headerlink" title="* 如何将两个电脑代码同步"></a>* 如何将两个电脑代码同步</h2><p>进入项目后点击克隆，复制ssh克隆命令，打开需要克隆的文件夹，输入git命令git clone + 复制</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;起步&quot;&gt;&lt;a href=&quot;#起步&quot; class=&quot;headerlink&quot; title=&quot;起步&quot;&gt;&lt;/a&gt;起步&lt;/h2&gt;&lt;p&gt;首先进入终端,输入cd进入家目录。通过ssh-keygen生成密钥，一路回车。&lt;/p&gt;
+&lt;p&gt;cd .ssh 进入ssh文件夹，输入ls，可</summary>
       
     
     
